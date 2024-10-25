@@ -1,0 +1,154 @@
+/* Custom CSS variables */
+:root {
+    --primary-color: #3498db; /* blue */
+    --secondary-color: #f1c40f; /* orange */
+    --background-color: #f9f9f9;
+    --text-color: #333;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    animation-duration: 5s;
+  }
+  
+  /* Calculator container */
+  .calculator-container {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: var(--background-color);
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    animation: fadeIn var(--animation-duration) ease-in-out forwards;
+    animation-fill-mode: forwards;
+  }
+  
+  /* Calculator title */
+  .calculator-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    animation: slideIn var(--animation-duration) ease-in-out forwards;
+    animation-fill-mode: forwards;
+  }
+  
+  /* Button group */
+  .button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  /* Calculator button */
+  .calculator-button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: var(--font-size);
+    font-weight: var(--font-weight);
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    margin: 10px;
+    transition: background-color 0.2s ease-in-out;
+    animation: pulse var(--animation-duration) ease-in-out forwards;
+    animation-fill-mode: forwards;
+  }
+  
+  .calculator-button:hover {
+    background-color: var(--secondary-color);
+    animation: pulse var(--animation-duration) ease-in-out forwards;
+    animation-fill-mode: forwards;
+  }
+  
+  .calculator-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Specific button styles */
+  #property-tax-button {
+    background-color: #8bc34a; /* green */
+  }
+  
+  #water-tax-button {
+    background-color: #4caf50; /* teal */
+  }
+  
+  #other-calculators-button {
+    background-color: #9c27b0; /* purple */
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    0% {
+      transform: translateY(-20px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  .calculator-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .button-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .property-tax-calculator-container {
+    width: 40%;
+    background-color: #f7f7f7;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-left: 20px;
+  }
+  .calculator-container-main{
+    display: flex;
+  }
+  .property-tax-calculator-container{
+    width: 70%;
+  }
+  .water-tax-container{
+    margin-right: 43%;
+    align-self: center;
+    align-items: center;
+
+  }

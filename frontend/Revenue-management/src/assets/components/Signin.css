@@ -1,0 +1,27 @@
+.signin-form-container{
+    display: flex;  
+    width: 70%;
+    height: 80vh;
+    margin-top: 5%;
+    margin: 5% auto  ;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px ;
+    box-shadow: 5px 5px 10px rgb(123, 123, 123);
+}
+.welcome{
+    text-align: center;
+    color: #d1c6dc;
+}
+
+.signin-form-gif img{
+    width:20em ;
+    height: 20em;
+}
+.signin-form{
+    border-left: 1px solid rgb(155, 155, 155);
+    width: 100%;
+}
+.inp-bx{
+    width: 10em;
+}
