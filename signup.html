@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <style> 
+    body {
+      background-image: url('file:///C:/Users/reddi/OneDrive/Documents/Desktop/javafiles/project/parkplaza/images/2.jpg');
+      background-size: cover;
+      background-position: center;
+      font-family: Arial, sans-serif; 
+      max-width: 500px; 
+      margin: 0 auto; 
+      padding: 20px; 
+    } 
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    h2 { 
+      text-align: center; 
+      margin-bottom: 30px; 
+    } 
+
+    label { 
+      display: block; 
+      margin-bottom: 5px; 
+    } 
+
+    input[type="text"], input[type="tel"], input[type="password"] { 
+      width: 100%; 
+      padding: 8px; 
+      margin-bottom: 10px; 
+      box-sizing: border-box; 
+      border: 1px solid #ccc; 
+      transition: all 0.3s ease-in-out;
+    }
+
+    input[type="text"]:focus, input[type="tel"]:focus, input[type="password"]:focus {
+      border-color: #007BFF;
+      box-shadow: 0 0 5px #007BFF;
+    }
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      background-color: #007BFF;
+      color: white;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Sign Up</h2>
+    <form action="signup.php" method="POST">
+      <label for="firstname">First Name:</label><br>
+      <input type="text" id="firstname" name="firstname" placeholder="Firstname" required><br><br>
+      
+      <label for="lastname">Last Name:</label><br>
+      <input type="text" id="lastname" name="lastname" placeholder="Lastname" required><br><br>
+      
+      <label for="licenseid">Driving License ID:</label><br>
+      <input type="text" id="licenseid" name="licenseid" placeholder="LicenseID" required><br><br>
+      
+      <label for="mobile">Mobile Number:</label><br>
+      <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}" placeholder="Mobile number" required><br><br>
+      
+      <label for="password">Password:</label><br>
+      <input type="password" id="password" name="password" placeholder="Password" required><br><br>
+      
+      <label for="confirm_password">Confirm Password:</label><br>
+      <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm password" required><br><br>
+      
+      <label for="otp">OTP:</label><br>
+      <input type="text" id="otp" name="otp" placeholder="OTP" required><br><br>
+  <input type="submit" id="submitButton" value="Submit">
+    </form>
+
+  </div>
+  <script>
+    document.getElementById('submitButton').addEventListener('click', function(event) {
+      event.preventDefault(); // prevent the form from submitting normally
+      // perform your actions here...
+           window.location.href = "login.html";
+    });
+  </script>
+</body>
+</html>

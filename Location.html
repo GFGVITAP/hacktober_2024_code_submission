@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Map Integration</title>
+    <style>
+      body{
+        font-family: Arial, sans-serif;
+        align-items: center;
+        justify-content: center;
+background-image: url(images/4.jpg);
+
+      }
+      header{
+        background-color: #f4f4f4;
+        padding: 20px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      #location-input {
+  margin-bottom: 20px;
+}
+
+#location-input label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 30px;
+  font-weight: 1000;
+  color:black;
+}
+
+#location-input input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #e1e8ee;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+#location-input input:focus {
+  border-color: #4d90fe;
+  outline: none;
+}
+
+#checkboxes {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+#checkboxes label {
+  display: block;
+  margin-bottom: 5px;
+ 
+  font-size: 30px;
+  font-weight: 1000;
+  color:black;
+}
+
+#checkboxes input[type="checkbox"] {
+  width: 30px; /* This increases the width of the checkbox */
+  height: 30px; /* This increases the height of the checkbox */
+  margin-right: 10px;
+  font-size: 30px;
+
+}
+
+#map {
+  width: 100%;
+  height: 500px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+button{
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 6px;
+  font-size: 30px;
+  font-weight: 1000;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-items: center;
+}
+    </style>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"
+      async
+    ></script>
+  </head>
+  <body>
+    <div id="location-input">
+      <label for="location">Enter your location:</label>
+      <input type="text" id="location" />
+    </div>
+    <div id="checkboxes">
+      <input type="checkbox" id="parking-slot" />
+      <label for="parking-slot">Parking slot</label>
+      <input type="checkbox" id="services" />
+      <label for="services">Services include</label>
+    </div>
+    <form id="locationForm" action="Services.html" method="post">
+      <!-- your form inputs here... -->
+      <button type="submit">Submit</button>
+    </form>
+<div id="map" style="width: 100%; height: 500px;"><img src="images/map.jpeg" alt="Description of the image"></div>
+    <script>
+      // Initialize and add the map
+      let map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
+          center: { lat: -34.397, lng: 150.644 },
+          zoom: 8,
+        });
+
+        // Add a click event listener to the map
+        map.addListener("click", (event) => {
+          const location = event.latLng;
+          const position = { lat: location.lat(), lng: location.lng() };
+
+          // Remove existing marker, if any
+          if (map.markers) {
+            map.markers.setMap(null);
+          }
+
+          // Add a new marker at the clicked location
+          map.markers = new google.maps.Marker({
+            position,
+            map,
+            title: "Your location",
+          });
+
+          // Update the location input field
+          document.getElementById("location")!.value = `(${position.lat}, ${position.lng})`;
+        });
+
+        // Initialize the location input field with the user's current location
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude,
+            };
+            map.setCenter(pos);
+            map.markers = new google.maps.Marker({
+              position: pos,
+              map: map,
+              title: "Your location",
+            });
+          },
+          () => {
+            console.log("Error: The Geolocation service failed.");
+          }
+        );
+      }
+    </script>
+    
+  </body>
+</html>

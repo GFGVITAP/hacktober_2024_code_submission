@@ -1,0 +1,28 @@
+body{
+    background-color: aquamarine;
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.navbar ul{
+    list-style-type: none;
+    background-color: rgb(79, 79, 59);
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    /* scroll-margin-bottom: hidden; */
+    border-radius: 20px;
+}
+.navbar a{
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 20px;
+    display: inline-block;
+    text-align: center;
+}

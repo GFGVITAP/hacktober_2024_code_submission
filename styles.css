@@ -1,0 +1,162 @@
+
+body {
+        
+       
+        
+	 margin: 0;
+	 padding: 0;
+	 font-family: Arial, sans-serif;
+     }
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 20px;
+}
+.container {
+    background-color: rgba(241, 237, 237, 0.5); /* 50% opacity */
+  }
+
+h1 {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.parking-lot {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 30px;
+}
+
+.parking-lot img {
+	height: 200px;
+}
+
+.info {
+	margin-left: 50px;
+}
+
+.info h2 {
+	margin-top: 0;
+}
+
+.controls {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 30px;
+}
+
+.controls button {
+	padding: 10px 20px;
+	background-color: #007bff;
+	color: #fff;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.controls button:hover {
+	background-color: #0056b3;
+}
+
+.options {
+	background-color: #f2f2f2;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.fines {
+	margin-bottom: 30px;
+}
+
+.fines h2 {
+	margin-top: 0;
+}
+
+.fines ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+p {
+   text-decoration: #0056b3;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(241, 237, 237, 0.7); /* Increase opacity for better readability */
+    border-radius: 10px; /* Round the corners of the container */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow to the container */
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #007BFF; /* Make the heading text blue */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow to the heading text */
+  }
+  
+  .parking-lot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px; /* Add some padding to the parking lot elements */
+    border: 1px solid #ccc; /* Add a border to the parking lot elements */
+    border-radius: 5px; /* Round the corners of the parking lot elements */
+  }
+  .fines ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  p {
+    color: #0056b3; /* Change the text color to blue */
+    font-size: 18px; /* Increase the font size */
+    line-height: 1.6; /* Increase the line height for better readability */
+  }
+  
+  /* Add some styles for the headings */
+  h1, h2, h3, h4, h5, h6 {
+    color: #007BFF; /* Change the heading color to a different shade of blue */
+    margin-bottom: 20px; /* Add some space below the headings */
+  }
+  
+  /* Add some styles for the links */
+  a {
+    color: #007BFF; /* Change the link color to match the heading color */
+    text-decoration: none; /* Remove the underline from the links */
+  }
+  
+  a:hover {
+    text-decoration: underline; /* Add the underline back when hovering over the links */
+  }
+  .container {
+    background-color: transparent; /* Make the background transparent */
+  }
+  body::after {
+    content: "";
+    background: url("images/2.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Service Booking</title>
+    <style>
+        body::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2); /* This is a semi-transparent black background */
+            z-index: 0; /* This makes the pseudo-element appear on top of the video */
+        }
+
+        #bgvid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1; /* This makes the video appear behind the content */
+        }
+
+        #content {
+            position: relative;
+            z-index: 1; /* This makes the content appear on top of the video */
+        }
+        
+        header {
+            background-image: url('images/logo.jpg');
+            background-size: cover;
+            background-color: #333;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo img {
+            height: 3rem;
+            margin-right: 1rem;
+            border-radius: 10px;
+        }
+
+        header h1 {
+            color: #fff;
+            font-size: 1.5rem;
+        }
+
+        header nav {
+            display: flex;
+            align-items: center;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        header nav ul li {
+            margin-right: 1rem;
+        }
+
+        header nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        form {
+            height: 600px;
+            width: 300px;
+            padding-top: 50px;
+            padding-left: 550px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-size: xx-large;
+            color: black;
+        }
+
+        input[type="number"],
+        input[type="date"],
+        input[type="time"],
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 5px;
+            margin-top: 5px;
+        }
+
+        button {
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 10px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        #reviews, #contact, #location {
+            margin: 50px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        #map {
+            height: 300px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <video autoplay loop muted id="bgvid">
+        <source src="images/route video.mp4" type="video/mp4">
+    </video>
+
+    <div id="content">
+        <header>
+            <div class="logo">
+                <img src="images/logo1.jpg" alt="Park PLAZA Logo">
+                <h1>PARK PLAZA</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <form class="form">
+            <label for="hours">Number of hours:</label>
+            <input type="number" id="hours" name="hours" min="1" max="12" required />
+
+            <label for="start_time">Start time:</label>
+            <input type="time" id="start_time" name="start_time" required />
+
+            <label for="end_time">End time:</label>
+            <input type="time" id="end_time" name="end_time" required />
+
+            <label for="date">Fix your date:</label>
+            <input type="date" id="date" name="date" required />
+
+            <label for="services">Select Service:</label>
+            <select id="services" name="services" required>
+                <option value="oil_change">Oil Change</option>
+                <option value="tire_replacement">Tire Replacement</option>
+                <option value="car_wash">Car Wash</option>
+                <option value="engine_checkup">Engine Checkup</option>
+            </select>
+
+            <label for="payment">Payment Method:</label>
+            <select name="paymentMethod" title="Payment Method">
+                <option value="upi">UPI ID</option>
+                <option value="debitCard">Debit Card</option>
+                <option value="creditCard">Credit Card</option>
+                <option value="phonePe">Phone PE</option>
+                <option value="gpay">Gpay</option>
+            </select>
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required />
+
+            <button type="submit" id="submitButton">Book</button>
+        </form>
+
+        <section id="reviews">
+            <h2>Customer Reviews</h2>
+            <form>
+                <label for="review">Leave a Review:</label>
+                <input type="text" id="review" name="review" required />
+                <button type="submit">Submit</button>
+            </form>
+            <!-- Add JavaScript to display reviews -->
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required />
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required />
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+
+        <section id="location">
+            <h2>Our Location</h2>
+            <div id="map">
+                <!-- Integrate a map API here (e.g., Google Maps) -->
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.getElementById('submitButton').addEventListener('click', function(event) {
+            event.preventDefault(); // prevent the form from submitting normally
+            // perform your actions here...
+            window.location.href = "Location.html";
+        });
+
+        // Additional JavaScript to handle reviews and map integration can be added here
+    </script>
+</body>
+</html>

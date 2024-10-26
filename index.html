@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2); /* This is a semi-transparent black background */
+  z-index: 0; /* This makes the pseudo-element appear on top of the video */
+}
+
+#bgvid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* This makes the video appear behind the content */
+}
+
+#content {
+  position: relative;
+  z-index: 1; /* This makes the content appear on top of the video */
+}
+        
+header {
+  background-image: url('images/logo.jpg');
+  background-size: cover;
+
+	background-color: #333;
+	padding: 1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+header .logo {
+	display: flex;
+	align-items: center;
+}
+
+header .logo img {
+	height: 3rem;
+	margin-right: 1rem;
+    border-radius: 10px;
+}
+
+header h1 {
+	color: #fff;
+	font-size: 1.5rem;
+}
+
+header nav {
+	display: flex;
+	align-items: center;
+}
+
+header nav ul {
+	list-style: none;
+	display: flex;
+	align-items: center;
+}
+
+header nav ul li {
+	margin-right: 1rem;
+}
+
+header nav ul li a {
+	color: #fff;
+	text-decoration: none;
+}
+form {
+    height: 600px;
+    width: 300px;
+    padding-top: 50px;
+    padding-left:550px; ;
+  }
+  label {
+    display: block;
+    margin-top: 10px;
+    font-size: xx-large;
+    color: black
+  }
+  input[type="number"],
+  input[type="date"],
+  input[type="time"] {
+    width: 100%;
+    padding: 5px;
+    margin-top: 5px;
+  }
+  button {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 10px;
+    margin-top: 20px;
+    width: 100%;
+  }
+    </style>
+</head>
+<body>
+    <video autoplay loop muted id="bgvid">
+  <source src="images/route video.mp4" type="video/mp4">
+    </video>
+    <!-- the rest of your code... -->
+  
+    <div id="content">
+    <header>
+		<div class="logo">
+			<img src="images/logo1.jpg" alt="Park PLAZA Logo">
+			<h1>PARK PLAZA</h1>
+		</div>
+		<nav>
+			<ul>
+				<li><a href="#">About</a></li>
+				<li><a href="login.html">Login</a></li>
+				<li><a href="signup.html">Sign Up</a></li>
+			</ul>
+		</nav>
+	</header>
+    <!--       <center><h2>Hourly Booking</h2></center>  -->
+   
+      <form class="form" action="/book" method="post">
+        <label for="hours">Number of hours:</label>
+        <input type="number" id="hours" name="hours" min="1" max="12" required />
+    
+        <label for="startTime">Start time:</label>
+        <input type="time" id="startTime" name="startTime" required />
+    
+        <label for="endTime">End time:</label>
+        <input type="time" id="endTime" name="endTime" required />
+    
+        <label for="date">Fix your date:</label>
+        <input type="date" id="date" name="date" required />
+    
+        <label for="paymentMethod">Payment Method:</label>
+        <select name="paymentMethod" title="Payment Method">
+            <option value="upi">UPI ID</option>
+            <option value="debitCard">Debit Card</option>
+            <option value="creditCard">Credit Card</option>
+            <option value="phonePe">Phone PE</option>
+            <option value="gpay">Gpay</option>
+        </select>
+    
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" required />
+    
+        <button type="submit" id="submitButton">Book</button>
+    </form>
+    </div>
+    <script>
+      document.getElementById('submitButton').addEventListener('click', function(event) {
+        event.preventDefault(); // prevent the form from submitting normally
+        // perform your actions here...
+        window.location.href = "Location.html";
+      });
+    </script>
+</body>
+</html>
+
+
+
