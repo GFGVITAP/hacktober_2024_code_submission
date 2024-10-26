@@ -1,0 +1,169 @@
+<html>
+<head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #a3a3c2;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #8a8ab8;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 300px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .modal-content h1 {
+            font-family: 'Fantasy', sans-serif;
+            font-size: 24px;
+            color: white;
+            margin-bottom: 20px;
+        }
+        .modal-content label {
+            display: block;
+            font-size: 14px;
+            color: white;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .modal-content input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 20px;
+            background-color: #b0b0d6;
+            color: #5a5a8a;
+            font-size: 14px;
+        }
+        .modal-content button {
+            background-color: #5a5a8a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .modal-content .error {
+            color: red;
+            font-size: 12px;
+            margin-top: -15px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="openModalBtn">Open Modal</button>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1>ADD BANK</h1>
+            <form id="bankForm">
+                <label for="ifsc">IFSC CODE</label>
+                <input type="text" id="ifsc" name="ifsc">
+                <div id="ifscError" class="error"></div>
+                
+                <label for="account">ACCOUNT NUMBER</label>
+                <input type="text" id="account" name="account">
+                <div id="accountError" class="error"></div>
+                
+                <label for="bankname">BANK NAME</label>
+                <input type="text" id="bankname" name="bankname">
+                <div id="banknameError" class="error"></div>
+                
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Modal element
+        var modal = document.getElementById("myModal");
+        var openModalBtn = document.getElementById("openModalBtn");
+        var closeBtn = document.getElementsByClassName("close")[0];
+
+        openModalBtn.addEventListener("click", openModal);
+        closeBtn.addEventListener("click", closeModal);
+        window.addEventListener("click", outsideClick);
+
+        function openModal() {
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        function outsideClick(e) {
+            if (e.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        document.getElementById('bankForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('ifscError').textContent = '';
+            document.getElementById('accountError').textContent = '';
+            document.getElementById('banknameError').textContent = '';
+
+            const ifsc = document.getElementById('ifsc').value;
+            const account = document.getElementById('account').value;
+            const bankname = document.getElementById('bankname').value;
+            
+            const ifscPattern = /^[A-Z]{4}0[A-Z0-9]{6}$/;
+            const accountPattern = /^[0-9]{9,18}$/;
+            const banknamePattern = /^[A-Za-z\s]{3,}$/;
+            
+            let isValid = true;
+
+            if (!ifscPattern.test(ifsc)) {
+                document.getElementById('ifscError').textContent = 'Invalid IFSC code';
+                isValid = false;
+            }
+            if (!accountPattern.test(account)) {
+                document.getElementById('accountError').textContent = 'Invalid account number';
+                isValid = false;
+            }
+            if (!banknamePattern.test(bankname)) {
+                document.getElementById('banknameError').textContent = 'Invalid bank name';
+                isValid = false;
+            }
+            if (isValid) {
+                alert('Form submitted successfully!');
+            }
+        });
+    </script>
+</body>
+</html>

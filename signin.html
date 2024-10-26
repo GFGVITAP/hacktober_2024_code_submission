@@ -1,0 +1,139 @@
+<html>
+ <head>
+  <title>
+   Sign Up
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+   body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to right, #D1A3FF, #A259FF);
+            font-family: Arial, sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .background-text {
+            position: absolute;
+            color: rgba(0, 0, 0, 0.1);
+            font-size: 3rem;
+            font-weight: bold;
+            transform: rotate(-30deg);
+        }
+
+        .container {
+            background-color: rgba(161, 89, 255, 0.8);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 300px;
+        }
+
+        .container i {
+            font-size: 3rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .container h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .container input {
+            width: 100%;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.2));
+            color: white;
+        }
+
+        .container button {
+            width: 100%;
+            padding: 0.5rem;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(to right, #4A00E0, #8E2DE2);
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .container a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            margin-top: 1rem;
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 200px;
+            height: auto;
+        }
+  </style>
+ </head>
+ <body>
+  <div class="logo">
+   <img alt="Colorful Logo" src="https://cdn.discordapp.com/attachments/1193978235311108117/1299338299487555625/Remove_background_project_11.png?ex=671cd697&is=671b8517&hm=acf333f10b5faf09eb0eaeef999c77ddf94043c32146edcfdfa33e143b1c15df&"/>
+  </div>
+  <div class="container">
+   <i class="fas fa-user-circle">
+   </i>
+   <h2>
+    Sign In
+    <form action="/signin" method="POST">
+        <input name="username" placeholder="Username" type="text" required/>
+        <input name="password" placeholder="Password" type="password" required/>
+        <button type="submit">Submit</button>
+      </form>
+      <a href="signup.html">Register</a>
+  </div>
+  <script>
+    const symbols = ['$', '€', '£', '¥', '₹'];
+    const rows = 10;
+    const cols = 7;
+    const spacingX = 100 / cols;
+    const spacingY = 100 / rows;
+    const backgroundSymbols = [];
+
+    // Create symbols in the background and store them in an array
+    for (let row = 0; row < rows; row++) {
+        for (let col = 0; col < cols; col++) {
+            const symbol = document.createElement('div');
+            symbol.className = 'background-text';
+            symbol.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+            symbol.style.top = row * spacingY + '%';
+            symbol.style.left = col * spacingX + '%';
+            document.body.appendChild(symbol);
+            backgroundSymbols.push(symbol);
+        }
+    }
+
+    // Function to change each symbol at random intervals
+    function updateSymbols() {
+        backgroundSymbols.forEach(symbol => {
+            symbol.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        });
+    }
+
+    // Update symbols every 1 second (1000 milliseconds)
+    setInterval(updateSymbols, 1000);
+</script>
+ </body>
+</html>
