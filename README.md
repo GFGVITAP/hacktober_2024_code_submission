@@ -1,2 +1,2 @@
-## Recognising Handwritten Devanagari Numerals using Machine Learning for Translating Ancient Texts.
-# video link : https://youtu.be/0KS0vl2dSOA?si=MJi5Me9iOBr_ouii
+## Recognising Ailments and providing suitable remedies for the same 
+# video link : https://youtu.be/I4GJB-m8Rts
