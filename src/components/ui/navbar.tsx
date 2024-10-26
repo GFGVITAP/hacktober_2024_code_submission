@@ -3,6 +3,7 @@
 // ... other imports
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +14,7 @@ const Navbar: React.FC = () => {
   };
 
   const handleNavigation = (path: string) => {
+    console.log(`Navigating to: ${path}`);
     navigate(path);
     setIsOpen(false); // Close the menu after navigation on mobile
   };
@@ -50,7 +52,7 @@ const Navbar: React.FC = () => {
         <div className="md:hidden">
           <button
             onClick={toggleMenu}
-            className="text-gray-800 focus:outline-none hover:text-gray-600 transition duration-200"
+            className="bg-gray-300 text-blue-400 hover:bg-gray-400 hover:text-blue-500 transition duration-200 p-2 rounded"
           >
             {isOpen ? "Close" : "Menu"}
           </button>
