@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Power Simulator</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <!--navbar-->
+    <div class="nav-bar">
+        <div class="logo">
+            <h1>SPS</h1>
+        </div>
+        <div class="nav-menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+<div class="mainhead">
+
+    <div class="secondbox">
+        <h2>Calculate The Solar Power Generated</h2>
+        <form id="solar-form">
+            <input type="text" id="location" placeholder="Enter Location" required />
+            <input type="number" id="roof-area" placeholder="Roof Area (m²)" required />
+            <button type="submit">Calculate</button>
+        </form>
+
+        <!-- Results Section -->
+        <div id="results" style="display:none;">
+            <p>Annual Energy Output: <span id="energy-output"></span></p>
+            <p>Cost Savings: <span id="cost-savings"></span></p>
+            <p>CO2 Savings: <span id="co2-savings"></span> </p>
+        </div>
+    </div>
+</div>
+<!-- Chart for energy output -->
+<canvas id="energy-chart"></canvas>
+
+
+    <script>
+        document.getElementById('solar-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+    
+            const location = document.getElementById('location').value;
+            const roofArea = parseFloat(document.getElementById('roof-area').value);
+    
+            if (!location || !roofArea || roofArea <= 0) {
+                alert("Please provide a valid location and roof area.");
+                return;
+            }
+    
+            const panelEfficiency = 0.2; // 20% efficiency
+            const electricityRateINR = 7; // ₹7 per kWh
+            const co2EmissionFactorIN = 0.82; // 0.82 kg CO2 per kWh
+    
+            // Fetch solar data and calculate results
+            const solarIrradiance = await fetchSolarData(location);
+            if (!solarIrradiance) return alert("Could not fetch solar data. Please try again.");
+    
+            // Refined Calculation
+            const dailyEnergy = solarIrradiance * roofArea * panelEfficiency;
+            const annualEnergy = dailyEnergy * 365;
+            const costSavingsINR = annualEnergy * electricityRateINR;
+            const co2SavingsIN = annualEnergy * co2EmissionFactorIN;
+    
+            // Display results
+            document.getElementById('energy-output').innerText = annualEnergy.toFixed(2) + 'kWh/year';
+            document.getElementById('cost-savings').innerText = costSavingsINR.toFixed(2) + ' ₹/year';
+            document.getElementById('co2-savings').innerText = co2SavingsIN.toFixed(2) + ' kg/year';
+            document.getElementById('results').style.display = 'block';
+    
+            // Plot the energy output chart
+            plotEnergyChart(annualEnergy);
+        });
+    
+        // Fetch solar irradiance data using OpenWeather API
+        async function fetchSolarData(location) {
+            const apiKey = '357e4ca3d1396bf417f32fd5a1452f74'; // Replace with your actual API key
+            const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`;
+    
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) throw new Error("Failed to fetch data");
+    
+                const data = await response.json();
+                const cloudCover = data.clouds?.all ?? 50; // Default to 50% if data is missing
+                return (100 - cloudCover) * 0.2; // Estimate irradiance more realistically
+            } catch (error) {
+                console.error("Error fetching solar data:", error);
+                return null;
+            }
+        }
+    
+        // Chart.js visualization for energy output
+        function plotEnergyChart(annualEnergy) {
+            const ctx = document.getElementById('energy-chart').getContext('2d');
+            if (window.myChart instanceof Chart) {
+                window.myChart.destroy(); // Destroy the chart if it exists to avoid duplicates
+            }
+            window.myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Annual Energy Output'],
+                    datasets: [{
+                        label: 'kWh/year',
+                        data: [annualEnergy],
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'kWh' }
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+    
+</body>
+</html>
