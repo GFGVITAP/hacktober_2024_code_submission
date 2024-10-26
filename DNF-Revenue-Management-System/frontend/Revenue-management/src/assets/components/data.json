@@ -1,0 +1,72 @@
+[
+    {
+      "userId": "user1",
+      "propertyTax": 1500,
+      "waterTax": 300,
+      "garbageTax": 100,
+      "others": 50,
+      "balance": 1950,
+      "rewards": 100,
+      "dueTaxes": 200,
+      "paymentStatus": "paid",
+      "paymentHistory": [
+        {
+          "paymentDate": "2024-01-15T00:00:00Z",
+          "paymentAmount": 1600,
+          "paymentMethod": "credit card"
+        },
+        {
+          "paymentDate": "2023-12-15T00:00:00Z",
+          "paymentAmount": 350,
+          "paymentMethod": "bank transfer"
+        }
+      ]
+    },
+    {
+      "userId": "user2",
+      "propertyTax": 2000,
+      "waterTax": 400,
+      "garbageTax": 150,
+      "others": 75,
+      "balance": 2625,
+      "rewards": 200,
+      "dueTaxes": 425,
+      "paymentStatus": "overdue",
+      "paymentHistory": [
+        {
+          "paymentDate": "2023-11-01T00:00:00Z",
+          "paymentAmount": 2500,
+          "paymentMethod": "cash"
+        },
+        {
+          "paymentDate": "2023-10-01T00:00:00Z",
+          "paymentAmount": 200,
+          "paymentMethod": "credit card"
+        }
+      ]
+    },
+    {
+      "userId": "user3",
+      "propertyTax": 1200,
+      "waterTax": 250,
+      "garbageTax": 100,
+      "others": 60,
+      "balance": 1610,
+      "rewards": 150,
+      "dueTaxes": 210,
+      "paymentStatus": "pending",
+      "paymentHistory": [
+        {
+          "paymentDate": "2023-09-15T00:00:00Z",
+          "paymentAmount": 1700,
+          "paymentMethod": "debit card"
+        },
+        {
+          "paymentDate": "2023-08-15T00:00:00Z",
+          "paymentAmount": 250,
+          "paymentMethod": "credit card"
+        }
+      ]
+    }
+  ]
+  

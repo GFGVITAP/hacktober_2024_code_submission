@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Accounts Center</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        /* Page styling */
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #d1c4e9;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        .header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #d1c4e9;
+        }
+        .header img {
+            width: 200px;
+            height: 100px;
+        }
+        .header h1 {
+            font-size: 24px;
+            color: #000;
+        }
+        .header .balance {
+            font-size: 24px;
+            color: #000;
+        }
+        .back-button {
+            background: linear-gradient(to right, #b39ddb, #9575cd);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        .back-button:hover {
+            background: linear-gradient(to right, #9575cd, #b39ddb);
+        }
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 80%;
+            margin-top: 20px;
+        }
+        .section {
+            width: 50%;
+            padding: 20px;
+        }
+        .section.bank {
+            background-color: #b39ddb;
+        }
+        .section.wallet {
+            background-color: #9575cd;
+        }
+        .section h2 {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 20px;
+        }
+        .section .item {
+            background-color: #90a4ae;
+            color: #fff;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .section .item.add {
+            background-color: #b0bec5;
+        }
+        .link {
+            font-size: 24px;
+            color: #000;
+            margin: 0 20px;
+        }
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #8a8ab8;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .modal-content h1 {
+            font-size: 24px;
+            color: white;
+            margin-bottom: 20px;
+        }
+        .modal-content label {
+            display: block;
+            font-size: 14px;
+            color: white;
+            margin-bottom: 5px;
+            text-align: left;
+        }
+        .modal-content input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 20px;
+            background-color: #b0b0d6;
+            color: #5a5a8a;
+            font-size: 14px;
+        }
+        .modal-content button {
+            background-color: #5a5a8a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .modal-content .error {
+            color: red;
+            font -size: 12px;
+            margin-top: -10px;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img alt="Logo" height="50" src="https://cdn.discordapp.com/attachments/1193978235311108117/1299338299487555625/Remove_background_project_11.png?ex=671cd697&is=671b8517&hm=acf333f10b5faf09eb0eaeef999c77ddf94043c32146edcfdfa33e143b1c15df" width="200"/>
+            <div class="balance">Balance<br>USD 00.00</div>
+            <button class="back-button" onclick="location.href='./main.html'">Back</button>
+        </div>
+        <h1 style="font-size: 36px;">Accounts Center</h1>
+        <div class="content">
+            <div class="section bank">
+                <h2><i class="fas fa-university"></i> Bank</h2>
+                <div id="accountList"></div> <!-- Account list will be populated here -->
+                <div class="item add" onclick="openModal()">+ Add Account</div>
+            </div>
+            <div class="link"><i class="fas fa-link"></i></div>
+            <div class="section wallet">
+                <h2><i class="fab fa-bitcoin"></i> Wallet</h2>
+                <div class="item" style="background-color: #d7ccc8;">Binance - 12929</div>
+                <div class="item add">+ Add Wallet</div>
+            </div>
+        </div>
+
+        <!-- Modal structure with embedded form -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h1>ADD BANK</h1>
+                <form id="bankForm">
+                    <label for="ifsc">IFSC CODE</label>
+                    <input type="text" id="ifsc" name="ifsc">
+                    <div id="ifscError" class="error"></div>
+
+                    <label for="account">ACCOUNT NUMBER</label>
+                    <input type="text" id="account" name="account">
+                    <div id="accountError" class="error"></div>
+
+                    <label for="bankname">BANK NAME</label>
+                    <input type="text" id="bankname" name="bankname">
+                    <div id="banknameError" class="error"></div>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+
+        <script>
+            const accounts = []; // Array to hold account details
+
+            // Open modal
+            function openModal() {
+                document.getElementById("myModal").style.display = "block";
+            }
+
+            // Close modal
+            function closeModal() {
+                document.getElementById("myModal").style.display = "none";
+            }
+
+            // Close modal on outside click
+            window.onclick = function(event) {
+                if (event.target == document.getElementById("myModal")) {
+                    closeModal();
+                }
+            };
+
+            // Form validation and account addition
+            document.getElementById('bankForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                document.getElementById('ifscError').textContent = '';
+                document.getElementById('accountError').textContent = '';
+                document.getElementById('banknameError').textContent = '';
+
+                const ifsc = document.getElementById('ifsc').value;
+                const account = document.getElementById('account').value;
+                const bankname = document.getElementById('bankname').value;
+
+                const ifscPattern = /^[A-Z]{4}0[A-Z0-9]{6}$/;
+                const accountPattern = /^[0-9]{9,18}$/;
+                const banknamePattern = /^[A-Za-z\s]{3,}$/;
+
+                let isValid = true;
+
+                if (!ifscPattern.test(ifsc)) {
+                    document.getElementById('ifscError').textContent = 'Invalid IFSC code';
+                    isValid = false;
+                }
+                if (!accountPattern.test(account)) {
+                    document.getElementById('accountError').textContent = 'Invalid account number';
+                    isValid = false;
+                }
+                if (!banknamePattern.test(bankname)) {
+                    document.getElementById('banknameError').textContent = 'Invalid bank name';
+                    isValid = false;
+                }
+
+                if (isValid) {
+                    accounts .push({ ifsc, account, bankname }); // Add account to array
+                    addAccountToList(ifsc, account, bankname); // Display the account
+                    closeModal(); // Close modal after successful submission
+                    document.getElementById('bankForm').reset(); // Reset the form
+                }
+            });
+
+            // Function to display the added account
+            function addAccountToList(ifsc, account, bankname) {
+                const accountList = document.getElementById('accountList');
+                const accountItem = document.createElement('div');
+                accountItem.className = 'item';
+                accountItem.innerHTML = `<strong>${bankname}</strong><br>IFSC: ${ifsc}<br>Account No: ${account}`;
+                accountList.appendChild(accountItem);
+            }
+        </script>
+    </body>
+</html>
