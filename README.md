@@ -1,3 +1,3 @@
 # cardioCare
 
-[Edit in StackBlitz next generation editor ⚡️](https://stackblitz.com/~/github.com/Izhaan-Raza/cardioCare)
+**deployed at:** _https://cardio-care-yoda.netlify.app/_
