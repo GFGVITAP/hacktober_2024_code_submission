@@ -1,53 +1,56 @@
 // src/components/Navbar.tsx
 
+// ... other imports
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleNavigation = (path: string) => {
+    navigate(path);
+    setIsOpen(false); // Close the menu after navigation on mobile
+  };
+
   return (
     <nav className="bg-gray-200 p-4">
-      {" "}
-      {/* Changed to a lighter grey */}
       <div className="container mx-auto flex justify-between items-center">
-        <div className="text-gray-800 text-lg font-bold">HarvestHarmony</div>{" "}
-        {/* Changed text color to darker for contrast */}
+        <div className="text-gray-800 text-lg font-bold">HarvestHarmony</div>
         <div className="hidden md:flex space-x-4">
-          <a
-            href="#"
-            className="text-gray-800 hover:text-gray-600 transition duration-200"
+          <button
+            onClick={() => handleNavigation("/")}
+            className="bg-gray-300 text-blue-400 hover:bg-gray-400 hover:text-blue-500 transition duration-200 p-2 rounded"
           >
-            {" "}
-            {/* Added transition for smooth effect */}
             Home
-          </a>
-          <a
-            href="#"
-            className="text-gray-800 hover:text-gray-600 transition duration-200"
+          </button>
+          <button
+            onClick={() => handleNavigation("/about")}
+            className="bg-gray-300 text-blue-400 hover:bg-gray-400 hover:text-blue-500 transition duration-200 p-2 rounded"
           >
             About
-          </a>
-          <a
-            href="#"
-            className="text-gray-800 hover:text-gray-600 transition duration-200"
+          </button>
+          <button
+            onClick={() => handleNavigation("/location")}
+            className="bg-gray-300 text-blue-400 hover:bg-gray-400 hover:text-blue-500 transition duration-200 p-2 rounded"
           >
-            Services
-          </a>
-          <a
-            href="#"
-            className="text-gray-800 hover:text-gray-600 transition duration-200"
+            Location
+          </button>
+          <button
+            onClick={() => handleNavigation("/contact")}
+            className="bg-gray-300 text-blue-400 hover:bg-gray-400 hover:text-blue-500 transition duration-200 p-2 rounded"
           >
             Contact
-          </a>
+          </button>
         </div>
         <div className="md:hidden">
           <button
             onClick={toggleMenu}
-            className="text-gray-800 focus:outline-none hover:text-gray-600 transition duration-200" // Added hover effect
+            className="text-gray-800 focus:outline-none hover:text-gray-600 transition duration-200"
           >
             {isOpen ? "Close" : "Menu"}
           </button>
@@ -56,30 +59,30 @@ const Navbar: React.FC = () => {
       {isOpen && (
         <div className="md:hidden">
           <div className="flex flex-col space-y-2 mt-2">
-            <a
-              href="#"
-              className="block text-gray-800 hover:text-gray-600 transition duration-200"
+            <button
+              onClick={() => handleNavigation("/")}
+              className="bg-gray-300 text-blue-400 hover:bg-gray-400 hover:text-blue-500 transition duration-200 p-2 rounded"
             >
               Home
-            </a>
-            <a
-              href="#"
-              className="block text-gray-800 hover:text-gray-600 transition duration-200"
+            </button>
+            <button
+              onClick={() => handleNavigation("/about")}
+              className="bg-gray-300 text-blue-400 hover:bg-gray-400 hover:text-blue-500 transition duration-200 p-2 rounded"
             >
               About
-            </a>
-            <a
-              href="#"
-              className="block text-gray-800 hover:text-gray-600 transition duration-200"
+            </button>
+            <button
+              onClick={() => handleNavigation("/location")}
+              className="bg-gray-300 text-blue-400 hover:bg-gray-400 hover:text-blue-500 transition duration-200 p-2 rounded"
             >
               Services
-            </a>
-            <a
-              href="#"
-              className="block text-gray-800 hover:text-gray-600 transition duration-200"
+            </button>
+            <button
+              onClick={() => handleNavigation("/contact")}
+              className="bg-gray-300 text-blue-400 hover:bg-gray-400 hover:text-blue-500 transition duration-200 p-2 rounded"
             >
               Contact
-            </a>
+            </button>
           </div>
         </div>
       )}
