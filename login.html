@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            background-image: url('../loginRegBg.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+        }
+
+        .login-container {
+            width: 300px;
+            margin: 120px auto;
+            padding: 20px;
+            border: 1px solid #000435;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: rgba(0, 0, 0, 0.7); 
+        }
+        
+        h2 {
+            color: #fff;
+            text-align: center;
+        }
+
+        .login-form input[type="text"], .login-form input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #000435;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        .login-form input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .login-form input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+
+        .forgot-password {
+            margin-top: 10px;
+            text-align: right;
+            color: #ccc;
+        }
+
+        .forgot-password a {
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        .forgot-password a:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form class="login-form" onsubmit="return handleLogin(event)">
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Login">
+            <div class="forgot-password">
+                <a href="#">Forgot Password?</a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // You can add any login validation logic here, e.g., AJAX request
+
+            // On successful login, redirect to the credit card details page
+            window.location.href = 'creditCardDetails.html'; // Change this to your actual credit card details page URL
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Financial Buddy</title>
+    <style>
+        /* Reset default styles */
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* Body styling */
+        
+        body {
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            background-color: rgb(46, 3, 46);
+            /* Violet background */
+            color: #fff;
+            /* White text for contrast */
+            padding: 20px;
+        }
+        /* Main container */
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: black;
+            /* Slightly lighter purple for container */
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+            /* Light gray background for input fields */
+            color: #333;
+            /* Dark text */
+        }
+        
+        .extra-fields {
+            margin-top: 20px;
+        }
+        
+        .add-button {
+            background-color: #fff;
+            /* White background for the button */
+            color: rgb(46, 3, 46);
+            /* Text color matches background */
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+            width: 100%;
+        }
+        
+        .add-button:hover {
+            background-color: #d3d3d3;
+            /* Light gray on hover */
+        }
+        
+        .submit-button {
+            background-color: #fff;
+            /* White background for the button */
+            color: rgb(46, 3, 46);
+            /* Text color matches background */
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1em;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+        
+        .submit-button:hover {
+            background-color: #d3d3d3;
+            /* Light gray on hover */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Main Container -->
+    <div class="container">
+        <h2>Monthly Expenditure</h2>
+
+        <div class="form-group">
+            <label for="home-rent">Home Rent</label>
+            <input type="number" id="home-rent" placeholder="Enter Home Rent" required>
+        </div>
+
+        <div class="form-group">
+            <label for="current-bill">Current Bill</label>
+            <input type="number" id="current-bill" placeholder="Enter Current Bill" required>
+        </div>
+
+        <div class="form-group">
+            <label for="groceries">Groceries</label>
+            <input type="number" id="groceries" placeholder="Enter Groceries Amount" required>
+        </div>
+
+        <div class="extra-fields" id="extra-fields"></div>
+
+        <button class="add-button" onclick="addExtraField()">Add Extra Expense</button>
+        <button class="submit-button" onclick="submitExpenditure()">Submit Expenditure</button>
+    </div>
+
+    <!-- JavaScript for handling extra fields and submission -->
+    <script>
+        function addExtraField() {
+            const extraFieldsContainer = document.getElementById('extra-fields');
+            const newField = document.createElement('div');
+            newField.classList.add('form-group');
+            newField.innerHTML = `
+                <label for="extra-expense-name">Extra Expense Name</label>
+                <input type="text" placeholder="Enter Expense Name" required>
+                <label for="extra-expense-amount">Amount</label>
+                <input type="number" placeholder="Enter Amount" required>
+            `;
+            extraFieldsContainer.appendChild(newField);
+        }
+
+        function submitExpenditure() {
+            const homeRent = document.getElementById('home-rent').value;
+            const currentBill = document.getElementById('current-bill').value;
+            const groceries = document.getElementById('groceries').value;
+
+            // Collect extra fields values
+            const extraFields = document.querySelectorAll('#extra-fields .form-group');
+            const extraExpenses = [];
+            extraFields.forEach(field => {
+                const expenseName = field.querySelector('input[type="text"]').value;
+                const expenseAmount = field.querySelector('input[type="number"]').value;
+                if (expenseName && expenseAmount) {
+                    extraExpenses.push({
+                        name: expenseName,
+                        amount: expenseAmount
+                    });
+                }
+            });
+
+            // Create an object for expenditures
+            const expenditures = {
+                homeRent: homeRent,
+                currentBill: currentBill,
+                groceries: groceries,
+                extraExpenses: extraExpenses
+            };
+
+            // Perform submission (you would typically send data to a server)
+            console.log('Expenditures:', expenditures);
+            alert('Expenditures submitted successfully!'); // Simulate submission success
+
+            // Reset form fields
+            document.querySelector('.container').reset();
+            document.getElementById('extra-fields').innerHTML = ''; // Clear extra fields
+        }
+    </script>
+
+</body>
+
+</html>

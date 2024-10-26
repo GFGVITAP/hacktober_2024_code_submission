@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - Financial Buddy</title>
+    <style>
+        body {
+            background-image: url('../loginRegBg.png');
+            background-size: cover;
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .register-container {
+            width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .register-container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .register-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .register-form label {
+            display: block;
+            width: 90%;
+            margin-bottom: 5px;
+            color: #fff;
+            text-align: left;
+            box-sizing: border-box;
+        }
+
+        .register-form input[type="text"], 
+        .register-form input[type="password"],
+        .register-form input[type="tel"],
+        .register-form input[type="email"] {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+            color: #000;
+            box-sizing: border-box;
+        }
+
+        .register-form input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 90%;
+        }
+
+        .register-form input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .family-details {
+            width: 90%;
+            padding: 15px;
+            margin-top: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .family-details h3 {
+            color: #fff;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <h2>Register for Financial Buddy</h2>
+        <form class="register-form" action="creditCardDetails.html" method="post">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password" required>
+
+            <label for="phone">Your Phone Number:</label>
+            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+
+            <label for="pan">PAN Card Number:</label>
+            <input type="text" id="pan" name="pan" placeholder="Enter your PAN card number" required>
+
+            <!-- Family Details Section -->
+            <div class="family-details">
+                <h3>Family Member Contact</h3>
+
+                <label for="family_phone">Family Member's Phone Number:</label>
+                <input type="tel" id="family_phone" name="family_phone" placeholder="Enter family member's phone number" required>
+
+                <label for="family_email">Family Member's Email:</label>
+                <input type="email" id="family_email" name="family_email" placeholder="Enter family member's email" required>
+            </div>
+
+            <input type="submit" value="Register">
+        </form>
+    </div>
+</body>
+</html>
