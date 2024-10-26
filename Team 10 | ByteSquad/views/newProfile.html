@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <title>Profile - YourName</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+    </style>
+</head>
+
+<body class="h-screen w-screen bg-white ">
+    <main class="h-full bg-white ">
+        <header class="flex md:justify-start justify-center items-center md:pl-40 px-10 space-x-6 pt-20 pb-5  md:flex-row flex-col">
+            <div class="pfp-image h-48 w-48 rounded-full border-2 border-[#680AFF]">
+                <img src="/public/images/profileImage.png" class="pfp " alt="">
+            </div>
+            <div class="name-location flex justify-center md:justify-end items-center md:items-start flex-col my-4 md:mx-0">
+                <h1 class="text-3xl font-bold text-black">ROHIT SINGH</h1>
+                <p class="text-md py-1 ">New Delhi, India</p>
+                <div class=" py-3">
+                    <button
+                        class="border  hover:-translate-y-0.5 hover:scale-101 duration-300 ease-in-out transition drop-shadow-xl bg-[#E8DEF8] rounded-xl w-36 py-1 h-[3.5rem] flex justify-center items-center gap-2"
+                        style="box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.30);">
+                        <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M5 19H6.425L16.2 9.225L14.775 7.8L5 17.575V19ZM3 21V16.75L16.2 3.575C16.4 3.39167 16.6208 3.25 16.8625 3.15C17.1042 3.05 17.3583 3 17.625 3C17.8917 3 18.15 3.05 18.4 3.15C18.65 3.25 18.8667 3.4 19.05 3.6L20.425 5C20.625 5.18333 20.7708 5.4 20.8625 5.65C20.9542 5.9 21 6.15 21 6.4C21 6.66667 20.9542 6.92083 20.8625 7.1625C20.7708 7.40417 20.625 7.625 20.425 7.825L7.25 21H3ZM15.475 8.525L14.775 7.8L16.2 9.225L15.475 8.525Z"
+                                    fill="#4A4459" />
+                            </svg></div>
+                        <div class="font-semibold text-black ">Edit Profile</div>
+                    </button>
+                </div>
+            </div>
+        </header>
+        <hr class="text-slate-400 mx-4 my-4 ">
+        <section class="flex flex-col md:flex-row mx-6 justify-evenly">
+            <div class="flex flex-col justify-center text-center md:text-left">
+                <h1 class="text-3xl text-black font-bold">Contacts</h1>
+        
+                <div class="flex flex-col md:flex-row text-center justify-evenly items-center space-y-4 md:space-y-0 my-4 md:ml-10 md:space-x-4">
+                    <div>
+                        <h1 class="text-gray-500 font-semibold">Email Address</h1>
+                        <p class="text-[#680AFF]">rohit@gmail.com</p>
+                    </div>
+                    <div>
+                        <h1 class="text-gray-500 font-semibold">Phone Number</h1>
+                        <p class="text-[#680AFF]">9837219212</p>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="bg-[#ece6f0] rounded-[28px] space-x-4 p-6 flex flex-col justify-center items-start mb-2">
+                <div>
+                    <h1 class="text-gray-500 font-semibold text-xl">HEALTH STATS:</h1>
+                </div>
+                <div class="flex flex-wrap gap-4 py-2 justify-center items-center">
+                    <div class="text-center text-sm">
+                        <h1 class="text-gray-500 font-semibold">75 Kg</h1>
+                        <p class="text-[#680AFF]">WEIGHT</p>
+                    </div>
+                    <div class="text-center text-sm">
+                        <h1 class="text-gray-500 font-semibold">5'11"</h1>
+                        <p class="text-[#680AFF]">HEIGHT</p>
+                    </div>
+                    <div class="text-center text-sm">
+                        <h1 class="text-gray-500 font-semibold">23</h1>
+                        <p class="text-[#680AFF]">AGE</p>
+                    </div>
+                    <div class="text-center text-sm">
+                        <h1 class="text-gray-500 font-semibold">A+</h1>
+                        <p class="text-[#680AFF]">BLOOD GROUP</p>
+                    </div>
+                    <div class="text-center text-sm">
+                        <h1 class="text-gray-500 font-semibold">MODERATE</h1>
+                        <p class="text-[#680AFF]">ACTIVITY</p>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+    
+        <hr class="text-slate-400 mx-4 my-4 ">
+         
+        <section class=" bg-white items-center">
+            <div class="flex justify-evenly mx-4 flex-col md:flex-row">
+                <div class="py-10 space-y-4 ">
+                    <div class="healthscore w-full h-56 flex hover:-translate-y-2 hover:scale-105 duration-300 ease-in-out transition drop-shadow-2xl justify-around px-10 py-10 items-center bg-[#ece6f0] rounded-3xl space-x-24"
+                        style="box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.30);">
+                        <h1 class="text-xl font-semibold ">BMI Score</h1>
+                        <div>
+                            <div class="text-xl border-8 bg-violet-400 border-violet-400 text-violet-600 radial-progress "
+                            style="--value:70 ; --size:10rem; --thickness: 1rem;" role="progressbar">
+                            70%
+                        </div>
+                        </div>
+                    </div>
+        
+                </div>
+                <div class="py-10 space-y-4 ">
+                    <div class="healthscore h-56 w-full flex justify-around px-10 py-10 items-center hover:-translate-y-2 hover:scale-105 duration-300 ease-in-out transition drop-shadow-2xl bg-[#ece6f0] rounded-3xl space-x-24"
+                        style="box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.30);">
+                        <h1 class="text-xl font-semibold ">Health Score</h1>
+                        <div>
+                            <div class="text-xl border-8 bg-emerald-400 border-emerald-400 text-emerald-600 radial-progress w-40  "
+                            style="--value:70 ; --size:10rem; --thickness: 1rem;" role="progressbar">
+                            70%
+                        </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+    </main>
+    
+</body>
+
+</html>

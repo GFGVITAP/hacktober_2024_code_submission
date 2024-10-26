@@ -1,0 +1,105 @@
+
+.threat-blocked-view {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: normal;
+    color: #000;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.threat-blocked-container {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row nowrap;
+    -moz-flex-flow: row nowrap;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    align-items: center;
+    height: 100%;
+    overflow: auto;
+    max-width: 720px;
+    margin: auto;
+    box-sizing: border-box;
+    position: relative;
+}
+
+
+.threat-blocked-container .footer .primary-btn {
+    border: 0 none;
+    display: block;
+    cursor: pointer;
+    padding: 12px 16px;
+    min-height: 32px;
+    text-align: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+    background-color: #0078d7;
+    font-weight: 500;
+    border-radius: 3px;
+}
+
+.threat-blocked-container .footer .primary-btn:hover {
+    background-color: #0e963d;
+} 
+
+.threat-blocked-container .footer {
+    display: inline-block;
+    margin-top: 4px;
+    padding: 4px 0;
+    color: #000000;
+    text-decoration: bold;
+}
+
+.threat-blocked-container .footer .small {
+    display: block;
+    margin-top: 30px;
+}
+.threat-blocked-container .muted {
+    opacity: 0.6;
+}
+
+.threat-blocked-container .muted a {
+    color: inherit !important;
+}
+
+.threat-blocked .header {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-flow: row nowrap;
+    -moz-flex-flow: row nowrap;
+    -ms-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    align-items: center;
+    font-size: 26px;
+}
+
+.threat-blocked .header .logo svg { width: 100%;}
+.threat-blocked .header h1 { font-size: 1em; line-height: 1em;  margin: 0; text-align: left;}
+.threat-blocked .header h1 span { display: block;  font-size: 0.5em; font-weight: normal; line-height: 1em; }
+
+.threat-blocked .body { font-size: 14px; line-height: 24px; margin-top: 10%; margin-bottom: 10%;}
+.threat-blocked .body h2 { margin-bottom: 4px; line-height: 1em; }
+.threat-blocked .body p { margin-top: 4px;}
+
+
+.threat-blocked-view .toast {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(0,-15px);   
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+@media screen and (min-width: 425px) {
+    .threat-blocked .header { font-size: 36px;}
+}

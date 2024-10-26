@@ -1,0 +1,14 @@
+
+streamlit
+sqlite3 
+pathlib
+langchain
+ibm-watsonx-ai
+langchain-ibm
+docx
+opencv-python-headless
+tensorflow
+moviepy
+librosa
+scipy
+numpy

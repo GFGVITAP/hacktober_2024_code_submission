@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="w-full h-full">
+    <div class="w-11/12 mx-auto my-auto">
+        <section class="flex items-center w-full h-48 gap-4 pl-6 border-b-2">
+            <a href="/profile" class="flex items-center w-6 h-6" id="edit" name="edit"><img src="/images/arrow.png"
+                    alt="" class="w-6 h-6"></a>
+            <label class="text-3xl font-bold" for="edit">EDIT PROFILE</label>
+        </section>
+        <section class="flex items-center justify-center w-full h-48 gap-4 border-b-2 md:justify-start md:pl-8 md:h-56">
+            <div class="w-32 h-32 bg-black rounded-full md:h-48 md:w-48"><img src="/images/profile.png" alt=""></div>
+        </section>
+        <section class="flex flex-col w-full gap-8 pt-4">
+            <div class="flex flex-col gap-8 md:flex md:flex-row md:gap-16 md:px-8">
+                <div class="flex flex-col w-full gap-3 md:w-1/2">
+                    <h1 class="text-[#680AFF] font-bold text-xl">EDIT BASIC DETAILS</h1>
+                    <div class="flex w-full">
+                        <form action="" class="flex flex-col w-full gap-3 md:gap-4">
+                            <input type="text" placeholder="Name"
+                                class="w-full p-2 border border-black rounded-md input" />
+                            <div class="flex gap-2">
+                                <input type="text" placeholder="City"
+                                    class="input border border-black w-[9.3rem] p-2 rounded-md md:w-1/2" />
+                                <input type="text" placeholder="Country"
+                                    class="input border border-black w-[9.3rem] p-2 rounded-md md:w-1/2" />
+                            </div>
+                            <input type="text" placeholder="Phone Number"
+                                class="w-full p-2 border border-black rounded-md input" />
+                            <input type="text" placeholder="Email Address"
+                                class="w-full p-2 border border-black rounded-md input" />
+                            <input type="text" placeholder="Emergency Number"
+                                class="w-full p-2 border border-black rounded-md input" />
+                        </form>
+                    </div>
+                </div>
+                <div class="flex flex-col gap-6 md:w-1/2">
+                    <div class="flex flex-col w-full gap-3">
+                        <h1 class="text-[#680AFF] font-bold text-xl">EDIT HEALTH DETAILS</h1>
+                        <div class="flex w-full">
+                            <form action="" class="flex flex-col w-full gap-3 md:gap-4">
+                                <input type="text" placeholder="Weight"
+                                    class="w-full p-2 border border-black rounded-md input" />
+                                <div class="flex gap-2">
+                                    <input type="text" placeholder="Height(in ft in)"
+                                        class="input border border-black w-[9.3rem] p-2 rounded-md md:w-1/2" />
+                                    <input type="text" placeholder="Age"
+                                        class="input border border-black w-[9.3rem] p-2 rounded-md md:w-1/2" />
+                                </div>
+                                <input type="text" placeholder="BMI"
+                                    class="w-full p-2 border border-black rounded-md input" />
+                                <input type="text" placeholder="Blood Group"
+                                    class="w-full p-2 border border-black rounded-md input" />
+                                <input type="text" placeholder="Activity Rate"
+                                    class="w-full p-2 border border-black rounded-md input" />
+                            </form>
+                        </div>
+                    </div>
+                    <div class="flex justify-center gap-6 mb-4 md:justify-end">
+                        <button class="border p-2 rounded-md bg-[#E8DEF8] text-lg font-semibold"
+                            style="box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.30);">Save
+                            Changes</button>
+                        <button class="border p-2 rounded-md bg-[#E8DEF8] text-lg font-semibold"
+                            style="box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.30);">Cancel</button>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </section>
+    </div>
+
+</body>
+
+</html>

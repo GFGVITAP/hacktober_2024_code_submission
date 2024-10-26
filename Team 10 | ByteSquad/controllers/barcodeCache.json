@@ -1,0 +1,329 @@
+{
+  "5000159461122": {
+    "productName": "Choco Bar",
+    "data": {
+      "productInterestingFacts": [
+        "Chocolate consumption can boost cognitive function significantly.",
+        "Peanuts contain antimicrobial properties for improved gut health.",
+        "Moderate sugar consumption is linked to increased risk of diseases.",
+        "Artificial flavor can have severe long term impact on health."
+      ],
+      "consumptionIndicator": 6,
+      "ingredients": [
+        {
+          "sugar": {
+            "description": "Highly refined sugar adds empty calories to product.",
+            "effects": [
+              "Contributes to obesity and related health issues.",
+              "Increases risk of heart disease and stroke.",
+              "Linked to type 2 diabetes development."
+            ]
+          }
+        },
+        {
+          "cocoa butter": {
+            "description": "Cocoa butter can provide essential fatty acids and antioxidants.",
+            "effects": [
+              "May lower cholesterol levels and improve heart health.",
+              "Linked to improved brain function and cognitive abilities."
+            ]
+          }
+        },
+        {
+          "chocolate": {
+            "description": "Chocolate contains flavonoids for antioxidant properties.",
+            "effects": [
+              "May help lower blood pressure and improve heart health.",
+              "Linked to improved mood and reduced stress levels."
+            ]
+          }
+        },
+        {
+          "skim milk": {
+            "description": "Skim milk is low-fat milk for reduced calorie count.",
+            "effects": [
+              "Linked to reduced risk of heart disease and stroke.",
+              "May help lower cholesterol levels and improve bone health."
+            ]
+          }
+        },
+        {
+          "lactose": {
+            "description": "Lactose can cause digestive issues in lactose intolerant individuals.",
+            "effects": [
+              "May lead to bloating, gas, and stomach cramps.",
+              "Linked to diarrhea and other digestive problems."
+            ]
+          }
+        },
+        {
+          "milkfat": {
+            "description": "Milkfat provides essential fatty acids for growth and development.",
+            "effects": [
+              "May help improve brain function and cognitive abilities.",
+              "Linked to improved immune system function."
+            ]
+          }
+        },
+        {
+          "soy lecithin": {
+            "description": "Soy lecithin is an emulsifier derived from soybeans.",
+            "effects": [
+              "May reduce cholesterol levels and improve heart health.",
+              "Linked to improved brain function and cognitive abilities."
+            ]
+          }
+        },
+        {
+          "peanuts": {
+            "description": "Peanuts are rich in protein and healthy fats for growth.",
+            "effects": [
+              "May help improve heart health and lower cholesterol levels.",
+              "Linked to improved bone health and cognitive function."
+            ]
+          }
+        },
+        {
+          "corn syrup": {
+            "description": "High-fructose corn syrup adds empty calories to product.",
+            "effects": [
+              "Contributes to obesity and related health issues.",
+              "Increases risk of heart disease and stroke.",
+              "Linked to type 2 diabetes development."
+            ]
+          }
+        },
+        {
+          "palm oil": {
+            "description": "Palm oil is high in saturated fats for increased calorie count.",
+            "effects": [
+              "May increase risk of heart disease and stroke.",
+              "Linked to high cholesterol levels and weight gain."
+            ]
+          }
+        },
+        {
+          "egg whites": {
+            "description": "Egg whites are a good source of protein for growth.",
+            "effects": [
+              "May help improve muscle mass and bone density.",
+              "Linked to improved heart health and weight management."
+            ]
+          }
+        },
+        {
+          "artificial flavor": {
+            "description": "Artificial flavor can be detrimental to overall health.",
+            "effects": [
+              "May increase risk of cancer and neurological disorders.",
+              "Linked to digestive issues and allergic reactions."
+            ]
+          }
+        }
+      ]
+    },
+    "foodAPI": {
+      "tags": [
+        "fat in high quantity",
+        "saturated fat in high quantity",
+        "sugars in high quantity",
+        "salt in moderate quantity"
+      ],
+      "potionControls": [
+        [
+          "energy",
+          2018
+        ],
+        [
+          "nova category",
+          null
+        ]
+      ],
+      "alergenAlerts": [
+        "soybeans",
+        "gluten"
+      ]
+    }
+  },
+  "8902579104016": {
+    "productName": "Mango drink",
+    "data": {
+      "productInterestingFacts": [
+        "Mango drink may contain high sugar content levels.",
+        "Some mango drinks contain artificial flavor enhancers.",
+        "Excessive consumption may lead to calorie intake increase."
+      ],
+      "consumptionIndicator": 5,
+      "ingredients": [
+        {
+          "Sucralose": {
+            "description": "Artificial sweetener commonly used in low calorie foods.",
+            "effects": [
+              "May cause digestive issues in some individuals.",
+              "Linked to changes in gut bacteria over time.",
+              "Potential impact on glucose metabolism regulation."
+            ]
+          }
+        },
+        {
+          "Sodium Benzoate": {
+            "description": "Preservative to extend shelf life and prevent spoilage.",
+            "effects": [
+              "Potential carcinogenic properties in high concentrations.",
+              "May cause skin and eye irritation in some individuals.",
+              "Linked to increased inflammation and oxidative stress."
+            ]
+          }
+        },
+        {
+          "Tartrazine": {
+            "description": "Synthetic food dye used to enhance product appearance.",
+            "effects": [
+              "May cause allergic reactions in sensitive individuals.",
+              "Potential link to hyperactivity in children's behavior.",
+              "Some studies suggest a connection to cancer development."
+            ]
+          }
+        },
+        {
+          "Maltodextrin": {
+            "description": "Starch-derived ingredient used as filler and thickener.",
+            "effects": [
+              "May cause digestive discomfort in individuals with IBS.",
+              "Can increase blood sugar levels in people with diabetes.",
+              "Linked to an imbalance in gut bacteria composition."
+            ]
+          }
+        },
+        {
+          "Mango Puree": {
+            "description": "Concentrated mango fruit used for flavor and nutrition.",
+            "effects": [
+              "High in natural sugars, contributing to calorie content.",
+              "Rich in vitamins A and C, with antioxidant properties.",
+              "May help support healthy digestion and bowel function."
+            ]
+          }
+        }
+      ]
+    },
+    "foodAPI": {
+      "tags": [],
+      "potionControls": [
+        [
+          "energy",
+          272
+        ],
+        [
+          "nova category",
+          null
+        ]
+      ]
+    }
+  },
+  "5449000000996": {
+    "productName": "Coca-Cola",
+    "data": {
+      "productInterestingFacts": [
+        "Consuming high amounts may lead to obesity issues globally",
+        "Dark cola colour comes from caramel E150d additive presence",
+        "Dental cavities linked to frequent Coca-Cola consumption pattern",
+        "Artificial caramel colour has been used since 1886 formulation"
+      ],
+      "consumptionIndicator": 6,
+      "ingredients": [
+        {
+          "water": {
+            "description": "Essential liquid for human existence and hydration balance",
+            "effects": [
+              "Reduces risk of dehydration when consumed properly",
+              "Essential for maintaining healthy body temperature regulation",
+              "Helps remove waste and toxins from the body effectively"
+            ]
+          }
+        },
+        {
+          "sugar": {
+            "description": "Refined sweetener linked to various health disparities globally",
+            "effects": [
+              "High consumption increases risk of obesity and diabetes",
+              "Linked to increased risk of heart disease and stroke incidence",
+              "Can lead to dental cavities and tooth decay issues"
+            ]
+          }
+        },
+        {
+          "carbon dioxide": {
+            "description": "Colourless gas used in carbonation of various beverages",
+            "effects": [
+              "May cause digestive discomfort in some individuals",
+              "Can contribute to tooth erosion and acid reflux issues",
+              "Generally considered safe for human consumption values"
+            ]
+          }
+        },
+        {
+          "colour E150d": {
+            "description": "Artificial caramel colouring linked to potential health concerns",
+            "effects": [
+              "May be linked to higher risk of certain cancers development",
+              "Class 3 carcinogen, but still approved for consumption globally",
+              "Some studies suggest adverse effects on children's hyperactivity"
+            ]
+          }
+        },
+        {
+          "phosphoric acid": {
+            "description": "Adds distinctive flavour, but also can erode tooth enamel",
+            "effects": [
+              "Excessive consumption linked to dental erosion and sensitivity",
+              "Can interfere with calcium absorption and bone health negatively",
+              "Generally considered safe, but excessive consumption hazardous"
+            ]
+          }
+        },
+        {
+          "natural flavourings": {
+            "description": "Various plant extracts used to enhance flavour and preservation",
+            "effects": [
+              "Some natural flavourings can cause allergic reactions sometimes",
+              "Generally considered safe for human consumption purposes worldwide",
+              "Some studies suggest potential links to obesity and metabolic syndrome"
+            ]
+          }
+        },
+        {
+          "caffeine": {
+            "description": "Stimulant that can enhance alertness, but with risks involved",
+            "effects": [
+              "High consumption linked to increased heart rate and anxiety",
+              "Can lead to insomnia, sleep deprivation, and other disorders",
+              "Some studies suggest potential links to osteoporosis and bone loss"
+            ]
+          }
+        }
+      ]
+    },
+    "foodAPI": {
+      "tags": [
+        "fat in low quantity",
+        "saturated fat in low quantity",
+        "sugars in high quantity",
+        "salt in low quantity"
+      ],
+      "potionControls": [
+        [
+          "energy",
+          180
+        ],
+        [
+          "nova category",
+          null
+        ]
+      ],
+      "alergenAlerts": [
+        "gluten"
+      ]
+    }
+  }
+}

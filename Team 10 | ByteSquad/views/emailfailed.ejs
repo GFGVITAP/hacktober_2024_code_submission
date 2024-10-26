@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Failed to Send</title>
+  <link rel="stylesheet" href="./stylesheets/output.css">
+  <style>
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .fade-in-up {
+      animation: fadeInUp 1s ease-out forwards;
+    }
+
+    @keyframes shake {
+      0%, 100% {
+        transform: translateX(0);
+      }
+      25% {
+        transform: translateX(-10px);
+      }
+      50% {
+        transform: translateX(10px);
+      }
+      75% {
+        transform: translateX(-10px);
+      }
+    }
+    .shake {
+      animation: shake 0.5s ease-in-out;
+    }
+  </style>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-900">
+
+  <div class="max-w-md p-8 text-center bg-gray-800 rounded-lg shadow-lg fade-in-up">
+    <!-- Replace this path with the path to your icon -->
+    <img src="/images/failed-message.png" alt="Error Icon" class="w-16 h-16 mx-auto shake">
+    
+    <h1 class="mt-4 text-2xl font-bold text-yellow-400">Invalid Email</h1>
+    <p class="mt-2 text-white">Oops! looks like you are not a student of VIT-AP. Try to register with student Email-ID</p>
+    <a href="/signup" class="inline-block px-4 py-2 mt-4 font-semibold text-white transition-colors duration-300 ease-in-out bg-blue-500 rounded hover:bg-blue-600">Back to Sign Up</a>
+  </div>
+
+</body>
+</html>
