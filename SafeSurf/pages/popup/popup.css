@@ -1,0 +1,20 @@
+.status_container {
+  width: 264pt;
+  height: auto; /* 219pt */
+  margin: 18pt 18pt;
+  border-radius: 10pt;
+  box-shadow: 0pt 4pt 8pt 0pt rgba(7, 20, 45, 0.06);
+  background-color: rgb(255, 255, 255);
+  border: 1pt solid rgb(237, 237, 238);
+}
+
+.footer_feedback_note {
+  width: 257pt;
+  height: auto;
+  position: relative;
+  top: 0pt;
+  text-align: left !important;
+  font-size: 10.5pt;
+  margin: 20pt;
+  margin-bottom: 18pt;
+}

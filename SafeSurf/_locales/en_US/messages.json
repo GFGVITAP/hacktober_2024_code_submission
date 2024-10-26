@@ -1,0 +1,195 @@
+{
+  "alert_take_to_safety": {
+  "message": "Take me back to safety"
+  },
+  "blocked_text_fraud": {
+  "message": "Fraudulent pages try to trick you into sending money for illegal gain."
+  },
+  "blocked_text_malware": {
+  "message": "Dangerous pages try to install harmful software without your permission."
+  },
+  "blocked_text_miner": {
+  "message": "Miner pages use your device to mine cryptocurrency, which can slow it down and reduce its lifespan."
+  },
+  "blocked_text_phish": {
+  "message": "Phishing pages try to steal sensitive information like passwords or credit card details by pretending to be trustworthy."
+  },
+  "blocked_text_pua": {
+  "message": "The page tried to download an unwanted app that could harm your device or compromise your data."
+  },
+  "blocked_text_untrusted": {
+  "message": "Untrusted pages behave suspiciously and may pose risks to your data."
+  },
+  "blocked_title_fraud": {
+  "message": "Fraudulent page blocked"
+  },
+  "blocked_title_malware": {
+  "message": "Dangerous page blocked"
+  },
+  "blocked_title_miner": {
+  "message": "Miner page blocked"
+  },
+  "blocked_title_phish": {
+  "message": "Phishing page blocked"
+  },
+  "blocked_title_pua": {
+  "message": "Unwanted app download blocked"
+  },
+  "blocked_title_untrusted": {
+  "message": "Untrusted page blocked"
+  },
+  "checkbox_link_feedback": {
+  "message": "Include current website link"
+  },
+  "extName": {
+  "message": "Protect Your Online Privacy and Security (Currently in Development @GFG-Hackathon)"
+  },
+  "extension_name": {
+  "message": "SafeSurf"
+  },
+  "footer_feedback_note": {
+  "message": "This extension is still under development. You may encounter some bugs."
+  },
+  "popup_settings": {
+  "message": "Settings"
+  },
+  "popup_text_safe": {
+  "message": "No suspicious elements found on this page."
+  },
+  "product_name": {
+  "message": "SafeSurf"
+  },
+  "settings_add_field_title": {
+  "message": "Manually add or remove websites below:"
+  },
+  "settings_current_website_add_title": {
+  "message": "Add current website to the list"
+  },
+  "settings_exceptions_title": {
+  "message": "Exceptions"
+  },
+  "settings_search_text": {
+  "message": "Warns about dangerous web pages in search results."
+  },
+  "settings_search_title": {
+  "message": "Search Advisor"
+  },
+  "settings_threat_text": {
+  "message": "Scans web pages for threats, phishing, and fraud attempts."
+  },
+  "settings_threat_title": {
+  "message": "Web Protection"
+  },
+  "settings_tooltip_text": {
+  "message": "Remove website from list"
+  },
+  "started_feedback_text": {
+  "message": "We welcome your feedback to improve SafeSurf."
+  },
+  "started_feedback_title": {
+  "message": "Send Feedback"
+  },
+  "started_search_text": {
+  "message": "SafeSurf warns about risky web pages in search results."
+  },
+  "started_search_title": {
+  "message": "Advance warning of risky webpages"
+  },
+  "started_threat_text": {
+  "message": "SafeSurf blocks online threats, phishing, and fraud attempts."
+  },
+  "started_threat_title": {
+  "message": "Protection against online threats"
+  },
+  "started_tracker_text": {
+  "message": "Identifies trackers that analyze your browsing behavior."
+  },
+  "started_tracker_title": {
+  "message": "Identifies trackers"
+  },
+  "started_welcome_text": {
+  "message": "Use SafeSurf for secure browsing."
+  },
+  "submit_result_failed_text": {
+  "message": "Submission failed"
+  },
+  "text_disabled_recommend": {
+  "message": "Enable in Settings."
+  },
+  "text_disabled_search_analyzer": {
+  "message": "Search Advisor is disabled. Enable in settings."
+  },
+  "text_disabled_threat_filter": {
+  "message": "Web Protection is disabled. Enable in settings."
+  },
+  "text_fraud": {
+  "message": "Fraud attempt detected"
+  },
+  "text_malware": {
+  "message": "Threat detected!"
+  },
+  "text_miner": {
+  "message": "Mining attempt detected"
+  },
+  "text_phish": {
+  "message": "Phishing attempt detected"
+  },
+  "text_pua": {
+  "message": "Potentially Unwanted App download detected"
+  },
+  "text_session_whitelist_popup": {
+  "message": "This page is skipped from scanning in the current browsing session"
+  },
+  "text_untrusted": {
+  "message": "This page may be safe, but some security threats have been reported."
+  },
+  "text_whitelist": {
+  "message": "Add this page to your Exceptions list if it's safe. Then, you won't be warned about any threats on this page."
+  },
+  "text_whitelist_popup": {
+  "message": "This page is skipped from scanning because it's in the Exceptions list."
+  },
+  "text_whitelist_submit": {
+  "message": "Pages in the Exceptions list won't be scanned for threats."
+  },
+  "text_whitelist_toast": {
+  "message": "Web page added to Exceptions list"
+  },
+  "title_disabled_search_analyzer": {
+  "message": "Cannot scan search results"
+  },
+  "title_disabled_threat_filter": {
+  "message": "Cannot scan this page"
+  },
+  "title_fraud": {
+  "message": "Fraud attempt detected"
+  },
+  "title_malware": {
+  "message": "Threat detected!"
+  },
+  "title_miner": {
+  "message": "Mining attempt detected"
+  },
+  "title_phish": {
+  "message": "Phishing attempt detected"
+  },
+  "title_pua": {
+  "message": "Potentially Unwanted App download detected"
+  },
+  "title_safe": {
+  "message": "This page is safe"
+  },
+  "title_untrusted": {
+  "message": "Untrusted domain detected"
+  },
+  "title_whitelist": {
+  "message": "Excepted page detected"
+  },
+  "web_protection_text": {
+  "message": "Online Protection by"
+  },
+  "web_protection_title": {
+  "message": "Online Protection by SafeSurf"
+  }
+  }
+  

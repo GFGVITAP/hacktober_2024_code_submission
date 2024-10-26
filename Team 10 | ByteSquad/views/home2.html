@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  <link rel="stylesheet" href="../public/stylesheets/output.css" />
+</head>
+
+<body>
+  <div id="main-container" class="h-screen bg-gray-100 flex flex-row justify-center items-stretch">
+    <div id="search-pane"
+      class="hidden lg:flex flex-col flex-1 min-w-[200px] max-w-[400px] bg-dark-green pl-6 pr-6 pt-12 gap-8">
+      <div id="search-controls"
+        class="flex flex-row justify-between items-center gap-3 bg-white rounded-3xl h-12 p-2 pl-4">
+        <button>
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink">
+            <rect width="30" height="30" fill="url(#pattern0_13_38)" />
+            <defs>
+              <pattern id="pattern0_13_38" patternContentUnits="objectBoundingBox" width="1" height="1">
+                <use xlink:href="#image0_13_38" transform="scale(0.00195312)" />
+              </pattern>
+              <image id="image0_13_38" width="512" height="512"
+                xlink:href="data:image/png;base64,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AOkEnE+AAAECBAICCkAA3ZEECBAgQCAtoACkE3A+AQIECBAICCgAAXRHEiBAgACBtIACkE7A+QQIECBAICCgAATQHUmAAAECBNICCkA6AecTIECAAIGAgAIQQHckAQIECBBICygA6QScT4AAAQIEAgIKQADdkQQIECBAIC2gAKQTcD4BAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgAABAgQIECBAgACBDwj8BxvOHqmrBwauAAAAAElFTkSuQmCC" />
+            </defs>
+          </svg>
+        </button>
+        <input type="text" name="search" id="search-input" placeholder="Search"
+          class="flex-1 min-w-0 bg-inherit outline-none" />
+        <button id="search-go">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_14_53)">
+              <path
+                d="M31.6 33L25.3 26.7C24.8 27.1 24.225 27.4167 23.575 27.65C22.925 27.8833 22.2333 28 21.5 28C19.6833 28 18.1458 27.3708 16.8875 26.1125C15.6292 24.8542 15 23.3167 15 21.5C15 19.6833 15.6292 18.1458 16.8875 16.8875C18.1458 15.6292 19.6833 15 21.5 15C23.3167 15 24.8542 15.6292 26.1125 16.8875C27.3708 18.1458 28 19.6833 28 21.5C28 22.2333 27.8833 22.925 27.65 23.575C27.4167 24.225 27.1 24.8 26.7 25.3L33 31.6L31.6 33ZM21.5 26C22.75 26 23.8125 25.5625 24.6875 24.6875C25.5625 23.8125 26 22.75 26 21.5C26 20.25 25.5625 19.1875 24.6875 18.3125C23.8125 17.4375 22.75 17 21.5 17C20.25 17 19.1875 17.4375 18.3125 18.3125C17.4375 19.1875 17 20.25 17 21.5C17 22.75 17.4375 23.8125 18.3125 24.6875C19.1875 25.5625 20.25 26 21.5 26Z"
+                fill="#49454F" />
+            </g>
+            <defs>
+              <clipPath id="clip0_14_53">
+                <rect x="4" y="4" width="40" height="40" rx="20" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+        </button>
+      </div>
+      <div>
+        <p class="mb-2 text-cream font-bold text-sm">Search Results</p>
+        <div id="search-results" class="flex flex-col gap-4">
+          <div class="result-item">
+            <div class="result-name">
+              <p class="result-header">Pringles</p>
+              <p class="result-subheader">Pepsico</p>
+            </div>
+            <div class="result-right">
+              <div class="result-nova-3">
+              </div>
+              <!-- <div class="result-nova">
+                    <img src="../assets/nova/NOVA_group_2.svg" alt="nova image not found" />
+                  </div> -->
+              <div class="result-information">
+                <p class="result-barcode-id">6001068587209</p>
+                <div class="result-info-display">
+                  <div class="result-allergen">
+                    <img src="../assets/Allergens/nuts_allergen_food_allergens_icon_183715.svg"
+                      alt="allergen image not found" />
+                  </div>
+                  <div class="result-allergen">
+                    <img src="../assets/Allergens/egg_allergen_food_allergens_icon_183709.svg"
+                      alt="allergen image not found" />
+                  </div>
+                  <div class="result-score-display">
+                    <p class="result-score-cat">H</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="search-history"></div>
+      </div>
+    </div>
+
+    <div id="icon-div" class="absolute top-0 right-0 m-4 border border-black bg-white w-12 h-12 rounded-full z-20"></div>
+    <img src="../assets/blob.svg" alt="blob not found" class="w-48 absolute top-[-60px] right-[-50px] z-10">
+    <div id="info-page" class="flex flex-col flex-1 bg-cream gap-10 p-12 pl-6 pr-6 sm:p-12 overflow-auto z-0 min-w-[65%]">
+      <h1 id="main-title" class="text-5xl font-bold text-black">Food Product</h1>
+      <div id="main-flow" class="flex-grow flex flex-col gap-36 items-stretch">
+        <div id="main-information" class="flex flex-col gap-12">
+          <div class="top-contents flex flex-col md:flex-row gap-12 justify-between">
+            <div class="overview-div flex flex-col gap-3 flex-grow">
+              <p class="text-heading">Overview</p>
+              <ul class="flex flex-col gap-3 text-black text-sm list-disc">
+                <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum nobis ad quod recusandae pariatur
+                  sunt, voluptatibus nulla cupiditate ullam laboriosam.</li>
+                <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum nobis ad quod recusandae pariatur
+                  sunt, voluptatibus nulla cupiditate ullam laboriosam.</li>
+                <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum nobis ad quod recusandae pariatur
+                  sunt, voluptatibus nulla cupiditate ullam laboriosam.</li>
+                <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum nobis ad quod recusandae pariatur
+                  sunt, voluptatibus nulla cupiditate ullam laboriosam.</li>
+                <li>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eum nobis ad quod recusandae pariatur
+                  sunt, voluptatibus nulla cupiditate ullam laboriosam.</li>
+              </ul>
+            </div>
+            <div class="advice-div flex flex-col gap-3 min-w-72">
+              <p class="text-heading">Advice</p>
+              <div class="advice-contents-div flex flex-col justify-start items-stretch gap-3">
+                <div class="warning-div">
+                  <p class="text-red-400 font-bold">Nutrient Warning</p>
+                  <div>
+                    <ul class="text-black">
+                      <li>High Sodium Content</li>
+                      <li>High Sugar Content</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="allergen-div text-black">
+                  <p class="text-red-400 font-bold">Allergen Alert</p>
+                  <div class="allergen-advice-unit">
+                    <img src="../assets/Allergens/fish_allergen_food_allergens_icon_183707.svg"
+                      alt="allergen image not found" class="result-allergen">
+                    <p>Contains Fish</p>
+                  </div>
+                </div>
+                <div class="Potion Control text-black">
+                  <p class="text-red-400 font-bold">Potion Control</p>
+                  <div class="potion-control">
+                    <div class="flex flex-row justify-between items-center">
+                      <p>Calories</p>
+                      <p>250</p>
+                    </div>
+                    <div class="flex flex-row justify-between items-center">
+                      <p>Nova Category</p>
+                      <p>2</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bottom-contents sm:flex sm:flex-row sm:gap-6 justify-start items-start">
+            <div
+              class="w-32 h-32 p-2 border float-left m-6 mb-0 mt-0 border-black rounded-lg flex flex-col sm:flex-shrink-0 justify-center items-center basis-auto">
+              <img src="../assets/Gauge.svg" alt="gauge image not found">
+              <p class="text-black">Overall Risk</p>
+            </div>
+            <ul class="basis-auto text-black">
+              <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod libero Lorem, ipsum dolor sit amet
+                consectetur adipisicing elit. Cumque quis nam animi obcaecati? Illo obcaecati repellat commodi,
+                mollitia
+                accusantium quis nulla nisi at eaque esse est id, vero nesciunt dolore! Harum, tempora asperiores
+                aspernatur facilis aliquid perspiciatis ipsam suscipit, molestiae dignissimos, eum doloribus eos nobis
+                blanditiis vero quae! Iste, vitae?</li>
+            </ul>
+          </div>
+        </div>
+        <div class="allergen-div flex flex-col gap-12">
+          <p class="allergen-title text-heading">
+            Allergen Information
+          </p>
+          <div class="allergen-list flex flex-row flex-wrap gap-20 items-center justify-center">
+            <div class="allergen-item">
+              <img src="../assets/Allergens/celery_allergen_food_allergens_icon_183714.svg" alt="celery image missing">
+              <p>Celery</p>
+            </div>
+            <div class="allergen-item">
+              <img src="../assets/Allergens/crustaceans_allergen_food_allergens_icon_183708.svg"
+                alt="crustaceans image missing">
+              <p>Crustaceans</p>
+            </div>
+            <div class="allergen-item">
+              <img src="../assets/Allergens/egg_allergen_food_allergens_icon_183709.svg" alt="egg image missing">
+              <p>Egg</p>
+            </div>
+            <div class="allergen-item">
+              <img src="../assets/Allergens/fish_allergen_food_allergens_icon_183707.svg" alt="fish image missing">
+              <p>Fish</p>
+            </div>
+            <div class="allergen-item">
+              <img src="../assets/Allergens/gluten_allergen_food_allergens_icon_183719.svg" alt="gluten image missing">
+              <p>Gluten</p>
+            </div>
+            <div class="allergen-item">
+              <img src="../assets/Allergens/lupins_allergen_food_allergens_icon_183713.svg" alt="lupins image missing">
+              <p>Lupins</p>
+            </div>
+            <div class="allergen-item allergen-selected">
+              <img src="../assets/Allergens/milk_allergen_food_allergens_icon_183717.svg" alt="milk image missing">
+              <p>Milk</p>
+            </div>
+            <div class="allergen-item">
+              <img src="../assets/Allergens/mustard_allergen_food_allergens_icon_183710.svg"
+                alt="mustard image missing">
+              <p>Mustard</p>
+            </div>
+            <div class="allergen-item">
+              <img src="../assets/Allergens/nuts_allergen_food_allergens_icon_183715.svg" alt="nuts image missing">
+              <p>Nuts</p>
+            </div>
+            <div class="allergen-item allergen-selected">
+              <img src="../assets/Allergens/peanut_allergen_food_allergens_icon_183711.svg" alt="peanut image missing">
+              <p>Peanut</p>
+            </div>
+            <div class="allergen-item">
+              <img src="../assets/Allergens/sesame_allergen_food_allergens_icon_183706.svg" alt="sesame image missing">
+              <p>Sesame</p>
+            </div>
+            <div class="allergen-item">
+              <img src="../assets/Allergens/shellfish_allergen_food_allergens_icon_183718.svg"
+                alt="shellfish image missing">
+              <p>Shellfish</p>
+            </div>
+            <div class="allergen-item">
+              <img src="../assets/Allergens/soy_allergen_food_allergens_icon_183712.svg" alt="soy image missing">
+              <p>Soy</p>
+            </div>
+            <div class="allergen-item allergen-selected">
+              <img src="../assets/Allergens/sulfites_allergen_food_allergens_icon_183716.svg"
+                alt="sulfite image missing">
+              <p>Sulfite</p>
+            </div>
+          </div>
+        </div>
+        <div class="ingredient-list flex flex-col gap-6 items-start justify-around">
+          <p class="text-heading">Ingredient Information</p>
+          <div class="main-cards-ingredients-list flex flex-row flex-wrap gap-12">
+            <div class="cards-col-1 flex flex-col gap-12 flex-1">
+              <div class="ingredient-card text-black text-sm p-2 flex flex-col gap-1">
+                <p class="text-small-heading">Heading</p>
+                <p class="text-sub-heading">Health Concerns</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro minima recusandae est!</p>
+                <p class="text-sub-heading">Recommendation</p>
+                <p>Aspernatur deserunt quisquam, obcaecati Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Fuga, quis.voluptas voluptates velit pariatur omnis temporibus cumque,
+                  corporis est quas harum sequi laborum maxime reprehenderit dolorem perferendis? Commodi?</p>
+              </div>
+              <div class="ingredient-card text-black text-sm p-2 flex flex-col gap-1">
+                <p class="text-small-heading">Heading</p>
+                <p class="text-sub-heading">Health Concerns</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro minima recusandae est!</p>
+                <p class="text-sub-heading">Recommendation</p>
+                <p>Aspernatur deserunt quisquam, obcaecati voluptas voluptates velit pariatur omnis temporibus cumque,
+                  corporis est quas harum sequi laborum maxime reprehenderit dolorem perferendis? Commodi? Lorem ipsum
+                  dolor sit amet consectetur adipisicing elit. Natus, ducimus asperiores quibusdam ipsum laborum
+                  possimus
+                  quas omnis molestiae dolorum. Aut amet rem quisquam dolorem quod?</p>
+              </div>
+            </div>
+            <div class="cards-col-2 flex flex-col gap-12 flex-1">
+              <div class="ingredient-card text-black text-sm p-2 flex flex-col gap-1">
+                <p class="text-small-heading">Heading</p>
+                <p class="text-sub-heading">Health Concerns</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro minima recusandae est!</p>
+                <p class="text-sub-heading">Recommendation</p>
+                <p>Aspernatur deserunt quisquam, obcaecati voluptas voluptates velit pariatur omnis temporibus cumque,
+                  corporis est quas harum sequi laborum maxime reprehenderit dolorem perferendis? Commodi?</p>
+              </div>
+              <div class="ingredient-card text-black text-sm p-2 flex flex-col gap-1">
+                <p class="text-small-heading">Heading</p>
+                <p class="text-sub-heading">Health Concerns</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro minima recusandae est!</p>
+                <p class="text-sub-heading">Recommendation</p>
+                <p>Aspernatur deserunt quisquam, obcaecati voluptas voluptates velit pariatur omnis temporibus cumque,
+                  corporis est quas harum sequi laborum maxime reprehenderit dolorem perferendis? Commodi?Lorem, ipsum
+                  dolor.</p>
+              </div>
+            </div>
+            <div class="cards-col-2 flex flex-col gap-12 flex-1">
+              <div class="ingredient-card text-black text-sm p-2 flex flex-col gap-1">
+                <p class="text-small-heading">Heading</p>
+                <p class="text-sub-heading">Health Concerns</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro minima recusandae est!</p>
+                <p class="text-sub-heading">Recommendation</p>
+                <p>Aspernatur deserunt quisquam, obcaecati voluptas voluptates velit pariatur omnis temporibus cumque,
+                  corporis est quas harum sequi laborum maxime reprehenderit dolorem perferendis? Commodi?Lorem ipsum
+                  dolor sit amet consectetur adipisicing elit. Vero unde delectus vitae aut fugit fuga nam iusto?
+                  Obcaecati vel nisi rem beatae, provident assumenda omnis, doloremque explicabo dolorum facilis
+                  aliquam.
+                </p>
+              </div>
+              <div class="ingredient-card text-black text-sm p-2 flex flex-col gap-1">
+                <p class="text-small-heading">Heading</p>
+                <p class="text-sub-heading">Health Concerns</p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Porro minima recusandae est!</p>
+                <p class="text-sub-heading">Recommendation</p>
+                <p>Aspernatur deserunt quisquam, obcaecati voluptas voluptates velit pariatur omnis temporibus cumque,
+                  corporis est quas harum sequi laborum maxime reprehenderit dolorem perferendis? Commodi? Lorem ipsum
+                  dolor sit amet, consectetur adipisicing elit. Atque sit nemo quia quaerat vel adipisci repellendus
+                  saepe, sed beatae id?</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="additional-information flex flex-col gap-12">
+        <p class="text-heading">Additional Information</p>
+        <ol class="flex flex-col text-black gap-3">
+          <li>
+            <a href="http://www.google.com">www.google.com</a>
+          </li>
+          <li>
+            <a href="http://www.google.com">www.google.com</a>
+          </li>
+          <li>
+            <a href="http://www.google.com">www.google.com</a>
+          </li>
+          <li>
+            <a href="http://www.google.com">www.google.com</a>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  </img>
+  </div>
+</body>
+
+</html>
