@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --allergen-aspect: calc(107/ 111);
+}
+
+@layer components {
+  .result-item {
+    @apply flex flex-row justify-between items-center border border-black h-16 rounded-lg p-3 bg-cream;
+  }
+
+  .result-name {
+    @apply text-black flex flex-col font-semibold;
+  }
+
+  .result-subheader {
+    @apply text-xs font-light;
+  }
+
+  .result-allergen {
+    @apply w-8;
+  }
+
+  .result-barcode-id {
+    @apply text-black text-xs font-light;
+  }
+
+  .result-information {
+    @apply flex flex-col gap-0.5;
+  }
+
+  .result-score-display {
+    @apply border border-black w-6 h-6 bg-red-400 text-white flex items-center justify-center;
+  }
+
+  .result-info-display {
+    @apply flex flex-row items-center justify-end gap-1;
+  }
+
+  .result-nova-1 {
+    @apply bg-green-300 w-3 -m-2;
+  }
+  .result-nova-2 {
+    @apply bg-yellow-300 w-3 -m-2;
+  }
+  .result-nova-3 {
+    @apply bg-orange-300 w-3 -m-2;
+  }
+  .result-nova-4 {
+    @apply bg-red-300 w-3 -m-2;
+  }
+
+  .result-right {
+    @apply flex flex-row gap-8;
+  }
+
+  .allergen-advice-unit {
+    @apply flex flex-row justify-start gap-3 items-center;
+  }
+
+  .text-heading {
+    @apply text-black text-3xl font-semibold;
+  }
+
+  .text-small-heading {
+    @apply text-2xl;
+  }
+
+  .text-sub-heading {
+    @apply font-bold;
+  }
+
+  .allergen-item {
+    @apply flex flex-col gap-1 justify-center items-center opacity-20;
+  }
+
+  .allergen-selected {
+    @apply opacity-100;
+  }
+
+  .allergen-item img {
+    @apply w-24;
+  }
+
+  .allergen-item p {
+    @apply text-black text-lg font-light;
+  }
+
+  .ingredient-card {
+    @apply min-h-72 min-w-52 max-w-64 bg-white shadow-forest-green shadow-lg rounded-xl ;
+  }
+}

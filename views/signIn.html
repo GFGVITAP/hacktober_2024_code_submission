@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body
+    class="h-[200vh] md:h-screen bg-gradient-to-t from-cyan-700 to-violet-700 overflow-x-hidden flex justify-center items-center p-10 md:px-36">
+    <main
+        class="relative flex flex-col-reverse items-center justify-center w-screen h-full overflow-hidden md:flex-row rounded-3xl">
+        <!-- Sliding Box for Desktop -->
+        <div
+            class="absolute z-50 flex-col items-center justify-center hidden w-1/2 h-full transition-transform duration-500 translate-x-1/2 box-desktop backdrop-blur-md bg-gradient-to-t from-cyan-900 to-purple-900 bg-cyan-600 md:flex">
+            <h2 id="h2" class="mb-4 text-3xl font-bold text-center text-white">Welcome!</h2>
+            <span id="up-subtitle" class="px-10 mb-10 font-semibold text-center text-white text-md">
+                Uncover the secrets behind every bite – explore what’s truly in your food.
+            </span>
+            <span id="lower-subtitle" class="px-4 mb-4 text-sm font-medium text-white">
+                New here? Create an account to get started.
+            </span>
+            <div>
+                <button id="mover-desktop" aria-label="Toggle Desktop Box"
+                    class="px-5 py-2 text-white transition duration-300 rounded-lg bg-violet-500 hover:scale-105 hover:bg-violet-600">Sign
+                    Up</button>
+            </div>
+        </div>
+
+
+        <!-- Sliding Box for Mobile -->
+        <div
+            class="absolute z-50 flex flex-col items-center justify-center w-full px-10 py-10 text-center transition-transform duration-500 translate-y-1/2 box-mobile backdrop-blur-md h-1/2 bg-gradient-to-t from-cyan-900 to-purple-900 md:hidden">
+            <h2 id="upper" class="mb-4 text-2xl font-bold text-center text-white">Welcome!</h2>
+            <span id="middle" class="px-10 mb-4 text-sm font-semibold text-white">
+                Uncover the secrets behind every bite – explore what’s truly in your food.
+            </span>
+            <span id="lower" class="mb-4 text-sm font-medium text-white">
+                New here? Create an account to get started.
+            </span>
+            <div>
+                <button id="mover-mobile" aria-label="Sign In"
+                    class="px-4 py-2 font-semibold text-white transition duration-300 rounded-lg bg-violet-500 hover:scale-105">Sign
+                    Up</button>
+            </div>
+        </div>
+
+        <!-- Sign-in and Sign-up Forms -->
+        <div class="absolute z-10 flex flex-col w-full h-full md:flex-row">
+            <!-- Sign-in Form -->
+            <div id="signin"
+                class="flex flex-col items-center justify-center w-full p-10 space-y-6 text-center bg-gradient-to-t from-violet-100 to-violet-200 text-violet-700 h-1/2 md:h-full md:w-1/2">
+                <h1 class="text-3xl font-bold">Sign In to your account</h1>
+                <p class="text-sm text-center md:text-base">Please sign in with your credentials.</p>
+                <!-- Include the Remix Icons CDN -->
+
+                <form class="flex flex-col w-full space-y-4" onsubmit="handleSignIn(event)">
+                    <div class="relative w-full">
+                        <!-- Username/Email Input with Icon -->
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                            <i class="text-gray-500 ri-mail-line"></i> <!-- Email Icon -->
+                        </div>
+                        <input
+                            class="w-full py-2 pl-10 rounded-lg placeholder:pl-2 ring-2 ring-slate-400 focus:ring-red-400"
+                            type="text" placeholder="Username or Email" required>
+                    </div>
+
+                    <div class="relative w-full">
+                        <!-- Password Input with Icon -->
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                            <i class="text-gray-500 ri-lock-line"></i> <!-- Password Icon -->
+                        </div>
+                        <input
+                            class="w-full py-2 pl-10 rounded-lg placeholder:pl-2 ring-2 ring-slate-400 focus:ring-red-400"
+                            type="password" placeholder="Password" required>
+                    </div>
+
+                    <a href="#" class="text-sm text-violet-800 hover:underline">Forgot Password?</a>
+
+                    <button type="submit"
+                        class="px-4 py-2 text-white transition duration-300 bg-violet-800 rounded-xl hover:scale-105 hover:bg-violet-700">Sign
+                        In</button>
+                </form>
+
+            </div>
+
+            <!-- Sign-up Form -->
+            <div id="signup"
+                class="flex flex-col items-center justify-center w-full p-10 space-y-6 bg-violet-200 text-violet-700 h-1/2 md:h-full md:w-1/2">
+                <h1 class="text-3xl font-bold">Create an Account</h1>
+                <!-- Include the Remix Icons CDN -->
+
+                <form class="flex flex-col w-full space-y-4" onsubmit="handleSignUp(event)">
+                    <div class="relative w-full">
+                        <!-- Username Input with Icon -->
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                            <i class="text-gray-500 ri-user-line"></i> <!-- User Icon -->
+                        </div>
+                        <input
+                            class="w-full py-2 pl-10 rounded-lg placeholder:pl-2 ring-2 ring-slate-400 focus:ring-red-400"
+                            type="text" placeholder="Username" required>
+                    </div>
+
+                    <div class="relative w-full">
+                        <!-- Email Input with Icon -->
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                            <i class="text-gray-500 ri-mail-line"></i> <!-- Email Icon -->
+                        </div>
+                        <input
+                            class="w-full py-2 pl-10 rounded-lg placeholder:pl-2 ring-2 ring-slate-400 focus:ring-red-400"
+                            type="email" placeholder="Email" required>
+                    </div>
+
+                    <div class="relative w-full">
+                        <!-- Password Input with Icon -->
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                            <i class="text-gray-500 ri-lock-line"></i> <!-- Password Icon -->
+                        </div>
+                        <input
+                            class="w-full py-2 pl-10 rounded-lg placeholder:pl-2 ring-2 ring-slate-400 focus:ring-red-400"
+                            type="password" placeholder="Password" required>
+                    </div>
+
+                    <div class="flex items-center">
+                        <input id="terms" type="checkbox" required class="mr-2">
+                        <label for="terms" class="text-sm">I agree to the <a href="#"
+                                class="text-sm text-blue-500">Terms and Conditions</a>.</label>
+                    </div>
+
+                    <button type="submit"
+                        class="px-4 py-2 text-white transition duration-300 bg-violet-800 drop-shadow-xl hover:scale-105 hover:bg-violet-700 rounded-xl">Sign
+                        Up</button>
+                </form>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const moverDesktop = document.querySelector("#mover-desktop");
+        const moverMobile = document.querySelector("#mover-mobile");
+        const boxDesktop = document.querySelector(".box-desktop");
+        const boxMobile = document.querySelector(".box-mobile");
+        var isSignInDesktop = true;
+        var isSignInMobile = true;
+
+        // Function to toggle to Sign In or Sign Up for Desktop
+        function toggleDesktop() {
+            boxDesktop.classList.toggle("translate-x-1/2");
+            boxDesktop.classList.toggle("-translate-x-1/2");
+            let h2 = document.querySelector("#h2");
+            let upper_subtitle = document.querySelector("#up-subtitle");
+            let lower_subtitle = document.querySelector("#lower-subtitle");
+
+            if (isSignInDesktop == false) {
+                moverDesktop.innerHTML = "Sign Up";
+                isSignInDesktop = true;
+                h2.innerHTML = "Welcome!";
+                upper_subtitle.innerHTML = "Uncover the secrets behind every bite – explore what’s truly in your food.";
+                lower_subtitle.innerHTML = "New here? Create an account to get started.";
+            } else {
+                moverDesktop.innerHTML = "Sign In";
+                h2.innerHTML = "Get Started Today";
+                upper_subtitle.innerHTML = "Your journey to healthier food choices starts here. Sign up to access personalized ingredient analysis and more.";
+                lower_subtitle.innerHTML = "Already a user? Sign In";
+                isSignInDesktop = false;
+            }
+        }
+
+        // Function to toggle to Sign In or Sign Up for Mobile
+        function toggleMobile() {
+            boxMobile.classList.toggle("translate-y-1/2");
+            boxMobile.classList.toggle("-translate-y-1/2");
+
+            let upper = document.querySelector("#upper");
+            let middle = document.querySelector("#middle");
+            let lower = document.querySelector("#lower");
+
+            if (isSignInMobile == false) {
+                moverMobile.innerHTML = "Sign Up";
+                upper.innerHTML = "Welcome!";
+                middle.innerHTML = "Uncover the secrets behind every bite – explore what’s truly in your food.";
+                lower.innerHTML = "New here? Create an account to get started.";
+                isSignInMobile = true;
+            } else {
+                moverMobile.innerHTML = "Sign In";
+                upper.innerHTML = "Get Started Today";
+                middle.innerHTML = "Your journey to healthier food choices starts here. Sign up to access personalized ingredient analysis and more.";
+                lower.innerHTML = "Already a user? Sign In";
+                isSignInMobile = false;
+            }
+        }
+
+        // Check URL hash on page load and trigger the sliding effect
+        window.onload = function () {
+            if (window.location.hash === "#signup") {
+                if (isSignInDesktop) {
+                    toggleDesktop(); // Show Sign Up on Desktop
+                }
+                if (isSignInMobile) {
+                    toggleMobile(); // Show Sign Up on Mobile
+                }
+            } else if (window.location.hash === "#signin") {
+                // Already in Sign In mode by default, no need to toggle
+                // But you could also handle it explicitly if needed
+            }
+        }
+
+        moverDesktop.addEventListener("click", toggleDesktop);
+        moverMobile.addEventListener("click", toggleMobile);
+    </script>
+
+</body>
+
+</html>

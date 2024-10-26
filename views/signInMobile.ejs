@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CLEAN - Sign In</title>
+  <link rel="stylesheet" href="/stylesheets/output.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body
+  class="flex items-center justify-center h-screen p-2 sm:p-2 bg-gradient-to-br from-purple-500 via-indigo-500 to-blue-500">
+  <!-- Form Section -->
+  <div class="p-6 shadow-lg bg-violet-100 rounded-2xl">
+    <!-- Top Image Section -->
+    <div class="p-2 mb-2 bg-slate-">
+      <img src="/images/login-mobile-image.svg" alt="Login Illustration" class="object-cover w-full h-48">
+    </div>
+
+    <form action="/authenticate" method="post" class="space-y-4">
+      <h1 class="mb-6 text-2xl font-bold text-center text-violet-500">Sign In</h1>
+
+      <!-- Username Input -->
+      <div class="relative">
+        <i class="absolute text-gray-500 ri-user-line left-3 top-3"></i>
+        <input type="text" placeholder="Username or Email" name="S_email"
+          class="w-full px-10 py-3 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+
+      <!-- Password Input -->
+      <div class="relative">
+        <i class="absolute text-gray-500 ri-lock-line left-3 top-3"></i>
+        <input type="password" placeholder="Password" name="S_password"
+          class="w-full px-10 py-3 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+
+      <!-- Forgot Password Link -->
+      <div class="text-right">
+        <a href="#" class="text-sm text-blue-500 hover:underline">Forgot password?</a>
+      </div>
+
+      <!-- Sign In Button -->
+      <input type="submit"
+        class="w-full py-3 text-white transition duration-200 bg-indigo-500 rounded-md hover:bg-indigo-600"
+        value="Sign In">
+    </form>
+
+    <!-- Sign Up Link -->
+    <div class="mt-6 text-center">
+      <span class="text-gray-600">Don't have an account?</span>
+      <a href="/signUp" class="text-blue-500 hover:underline">Sign Up</a>
+    </div>
+  </div>
+</body>
+
+</html>

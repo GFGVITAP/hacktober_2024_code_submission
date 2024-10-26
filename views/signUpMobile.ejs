@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en h-full">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CLEAN - Register</title>
+  <link rel="stylesheet" href="stylesheets/output.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+</head>
+
+<body
+  class="flex items-center justify-center object-fill w-screen h-full p-6 overflow-x-hidden overflow-y-hidden sm:p-2 bg-gradient-to-br from-purple-500 via-indigo-500 to-blue-500 ">
+  <!-- Form Section -->
+  <div class="w-full p-6 shadow-lg bg-violet-100 rounded-2xl">
+    <!-- Top Image Section -->
+    <div class="p-1 mb-6">
+      <img src="/images/signup-mobile.svg" alt="Register Illustration" class="object-cover w-full h-48">
+    </div>
+
+    <form action="/create" class="space-y-4" method="post">
+      <h1 class="mb-3 text-2xl font-bold text-center text-violet-500">Register Now!</h1>
+
+      <!-- Username Input -->
+      <div class="relative">
+        <i class="absolute text-gray-500 ri-user-line left-3 top-3"></i>
+        <input type="text" placeholder="Username" name="name"
+          class="w-full px-10 py-3 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+
+      <!-- Email Input -->
+      <div class="relative">
+        <i class="absolute text-gray-500 ri-mail-line left-3 top-3"></i>
+        <input type="email" placeholder="Email" name="email"
+          class="w-full px-10 py-3 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+
+      <!-- Password Input -->
+      <div class="relative">
+        <i class="absolute text-gray-500 ri-lock-line left-3 top-3"></i>
+        <input type="password" placeholder="Password" name="password"
+          class="w-full px-10 py-3 bg-gray-100 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+      </div>
+
+      <!-- Confirm Password Input -->
+
+
+      <!-- Register Button -->
+      <button type="submit"
+        class="w-full py-3 text-white transition duration-200 bg-indigo-500 rounded-md hover:bg-indigo-600">Register</button>
+    </form>
+
+    <!-- Sign In Link -->
+    <div class="mt-6 text-center">
+      <span class="text-gray-600">Already have an account?</span>
+      <a href="/signIn" class="text-blue-500 hover:underline">Sign In</a>
+    </div>
+  </div>
+</body>
+
+</html>

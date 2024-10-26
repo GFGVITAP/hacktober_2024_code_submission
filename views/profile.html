@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-white">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="h-screen bg-white">
+
+    <div class="absolute svg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="314" height="217" viewBox="0 0 314 217" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M-31.8699 107.728C-53.9746 80.3558 -107.026 79.5422 -114.788 44.929C-122.361 11.1643 -78.4652 -15.01 -66.9019 -48.4751C-54.3266 -84.8695 -66.3045 -127.088 -44.2878 -159.107C-20.2144 -194.118 17.0234 -225.156 58.7434 -231.207C100.372 -237.244 134.46 -204.427 173.303 -190.667C212.694 -176.712 265.121 -182.853 289.449 -149.479C313.886 -115.955 290.445 -67.2532 293.814 -25.345C296.975 13.9884 324.719 52.8848 308.686 89.8425C292.643 126.821 246.995 140.07 212.612 161.828C181.911 181.257 152.807 203.871 117.488 210.837C81.7099 217.894 40.7256 221.558 11.6273 201.47C-17.244 181.539 -9.90531 134.927 -31.8699 107.728Z"
+                fill="#ECE6F0" />
+        </svg>
+    </div>
+    <div class="relative w-full h-full mainpart top-24">
+        <section class="h-60 w-[80rem] mx-auto z-0 relative right-0 bottom-0 flex  gap-8 border-b-2">
+            <div class="image border-2 w-48 h-48 rounded-full border-[#680AFF]">
+                <img src="/public/images/profileImage.png" alt="">
+            </div>
+            <div class="mt-8 info-container w-80 h-52">
+                <div class="flex flex-col w-full gap-3 my-4 info h-5/6">
+                    <div>
+                        <h1 class="text-4xl font-bold text-black">ROHIT SINGH</h1>
+                        <p class="text-xl font-medium text-black">NEW DELHI,INDIA</p>
+                    </div>
+
+                    <button
+                        class="border  hover:-translate-y-2 hover:scale-105 duration-300 ease-in-out transition drop-shadow-xl bg-[#E8DEF8] rounded-xl w-36 py-1 h-[3.5rem] flex justify-center items-center gap-2"
+                        style="box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.30);">
+                        <div><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none">
+                                <path
+                                    d="M5 19H6.425L16.2 9.225L14.775 7.8L5 17.575V19ZM3 21V16.75L16.2 3.575C16.4 3.39167 16.6208 3.25 16.8625 3.15C17.1042 3.05 17.3583 3 17.625 3C17.8917 3 18.15 3.05 18.4 3.15C18.65 3.25 18.8667 3.4 19.05 3.6L20.425 5C20.625 5.18333 20.7708 5.4 20.8625 5.65C20.9542 5.9 21 6.15 21 6.4C21 6.66667 20.9542 6.92083 20.8625 7.1625C20.7708 7.40417 20.625 7.625 20.425 7.825L7.25 21H3ZM15.475 8.525L14.775 7.8L16.2 9.225L15.475 8.525Z"
+                                    fill="#4A4459" />
+                            </svg></div>
+                        <div class="font-semibold text-black ">Edit Profile</div>
+                    </button>
+                </div>
+            </div>
+        </section>
+        <section class="h-52 w-[80rem] mx-auto  pt-8 flex border-b-2">
+            <div class="flex flex-col w-1/2 gap-1 contacts h-5/6">
+                <h1 class="text-2xl font-semibold text-black">Contacts:</h1>
+                <div class="flex w-full font-semibold info h-5/6">
+                    <div class="flex flex-col justify-center w-1/3 h-full gap-3 email ">
+                        <h1 class="text-gray-500 text-md">EMAIL ADDRESS</h1>
+                        <a href="" class="text-[#680AFF] text-md underline cursor-pointer">rohit@gmail.com</a>
+                    </div>
+                    <div class="flex flex-col justify-center w-1/3 h-full gap-3 email">
+                        <h1 class="text-gray-500 text-md">PHONE NUMBER</h1>
+                        <a href="" class="text-[#680AFF] text-md cursor-pointer">8249487461</a>
+                    </div>
+
+                </div>
+            </div>
+            <div class="health-stats hover:-translate-y-2 hover:scale-105 duration-300 ease-in-out transition drop-shadow-2xl w-1/2 h-5/6 border-2 font-semibold rounded-3xl bg-[#E8DEF8] p-4 flex flex-col gap-2"
+                style="box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.30);">
+                <h1 class="text-2xl text-black">Health Stats:</h1>
+                <div class="flex justify-center gap-8 font-medium info">
+                    <div class="flex flex-col justify-center h-full gap-2 email">
+                        <h1 class="text-lg text-center text-gray-500">WEIGHT</h1>
+                        <a href="" class="text-[#680AFF] text-md cursor-pointer text-center">75 kg</a>
+                    </div>
+                    <div class="flex flex-col justify-center h-full gap-2 email">
+                        <h1 class="text-lg text-center text-gray-500">HEIGHT</h1>
+                        <a href="" class="text-[#680AFF] text-md cursor-pointer text-center">5'11"</a>
+                    </div>
+                    <div class="flex flex-col justify-center h-full gap-2 email">
+                        <h1 class="text-center text-gray-500 text-md">AGE</h1>
+                        <a href="" class="text-[#680AFF] text-md cursor-pointer text-center">23</a>
+                    </div>
+                    <div class="flex flex-col justify-center h-full gap-2 email">
+                        <h1 class="text-center text-gray-500 text-md">BLOOD GROUP</h1>
+                        <a href="" class="text-[#680AFF] text-md cursor-pointer text-center">A+</a>
+                    </div>
+                    <div class="flex flex-col justify-center h-full gap-2 email">
+                        <h1 class="text-center text-gray-500 text-md">ACTIVITY RATE</h1>
+                        <a href="" class="text-[#680AFF] text-md cursor-pointer text-center">MODERATE</a>
+                    </div>
+                    <div class="flex items-center justify-center">
+                        <img src="/public/images/next.png" class="w-6" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class=" w-[80rem] mx-auto flex justify-around ">
+            <div class="w-2/5 h-full py-10 space-y-7 ">
+                <div class="healthscore w-full h-56 flex hover:-translate-y-2 hover:scale-105 duration-300 ease-in-out transition drop-shadow-2xl justify-around px-10 py-10 items-center bg-[#ece6f0] rounded-3xl"
+                    style="box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.30);">
+                    <h1 class="text-xl font-semibold ">BMI Score</h1>
+                    <div class="text-xl border-8 bg-violet-400 border-violet-400 text-violet-600 radial-progress "
+                        style="--value:70 ; --size:10rem; --thickness: 1rem;" role="progressbar">
+                        70%
+                    </div>
+                </div>
+
+            </div>
+            <div class="w-2/5 h-full py-10 space-y-7">
+                <div class="healthscore h-56 w-full flex justify-around px-10 py-10 items-center hover:-translate-y-2 hover:scale-105 duration-300 ease-in-out transition drop-shadow-2xl bg-[#ece6f0] rounded-3xl"
+                    style="box-shadow: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.30);">
+                    <h1 class="text-xl font-semibold ">Health Score</h1>
+                    <div class="text-xl border-8 bg-emerald-400 border-emerald-400 text-emerald-600 radial-progress "
+                        style="--value:70 ; --size:10rem; --thickness: 1rem;" role="progressbar">
+                        70%
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+</body>
+
+</html>
