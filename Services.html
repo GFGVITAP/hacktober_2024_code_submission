@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Park Plaza Services</title>
+    <style>
+        body {
+            text-align: center;
+            font-size: large;
+            color:white;
+            background-color:gray;
+             /* Increase the font size for body text */
+     
+        }
+        h1{
+            font-size: 50px;
+        }
+        p{
+            font-size: 30px;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+        }
+        form label{
+            font-size: 20px;
+        }
+        input{
+            font-size: 20px;
+        }
+        button {
+            font-size:medium; /* Increase the font size for the button */
+           background-color:  black transparent;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Park Plaza</h1>
+    <p>Thank you for parking with us. Please select the services you require:</p>
+    
+    <form>
+        <input type="checkbox" id="wash" name="service" value="wash">
+        <label for="wash">Wash</label><br>
+
+        <input type="checkbox" id="evCharge" name="service" value="evCharge">
+        <label for="evCharge">Charge for EV</label><br>
+
+        <input type="checkbox" id="fuelPetrol" name="service" value="fuelPetrol">
+        <label for="fuelPetrol">Fuel: Petrol</label><br>
+
+        <input type="checkbox" id="fuelDiesel" name="service" value="fuelDiesel">
+        <label for="fuelDiesel">Fuel: Diesel</label><br>
+
+        <input type="checkbox" id="fuelGasoline" name="service" value="fuelGasoline">
+        <label for="fuelGasoline">Fuel: Gasoline</label><br>
+
+        <input type="checkbox" id="repairTire" name="service" value="repairTire">
+        <label for="repairTire">Repair the punctured tire</label><br>
+
+        <input type="checkbox" id="airFilling" name="service" value="airFilling">
+        <label for="airFilling">Air Filling</label><br>
+
+    <button type="submit" id="submitButton">Submit</button>
+       <br>
+       
+       <button type="submit">Skip</button>
+
+    </form>
+    <script>
+        document.getElementById('submitButton').addEventListener('click', function(event) {
+          event.preventDefault(); // prevent the form from submitting normally
+          // perform your actions here...
+           window.location.href = "payment.html";
+        });
+      </script>
+</body>
+</html>

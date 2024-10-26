@@ -1,0 +1,74 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.floor-selector {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.floor-button {
+  background-color: #ddd;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.floor-button.active {
+  background-color: #333;
+  color: #fff;
+}
+
+.parking-lot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.slot {
+  background-color: #eee;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  width: calc(33.333% - 1rem);
+  margin-bottom: 1rem;
+}
+
+.slot img {
+  width: 50px;
+  height: auto;
+  border-radius: 0.25rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.pagination button {
+  background-color: #ddd;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.pagination span {
+  font-size: 1.2rem;
+}

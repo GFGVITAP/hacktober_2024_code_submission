@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Payment Page</title>
+    <style>
+    /* Date Field */
+.month,
+.year {
+  width: 145px;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  border: 2px solid #e1e8ee;
+  border-radius: 6px;
+  background: url('caret.png') no-repeat right 50%/15px 10px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.month {
+  float: left;
+}
+
+.year {
+  float: right;
+}
+
+/* Card Verification Field */
+.cvv-input {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 145px;
+  margin-bottom: 20px;
+  padding: 5px;
+  border: 2px solid #e1e8ee;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.cvv-input input {
+  flex: 1;
+  padding-left: 20px;
+  border: none;
+  border-radius: 6px;
+  background: none;
+}
+
+.cvv-details {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 16px;
+  float: right;
+  margin-bottom: 20px;
+}
+
+.cvv-details p {
+  margin-top: 6px;
+}
+
+/* Payment Form */
+.payment-form {
+  width: 500px;
+  margin: auto;
+height:  100%;
+ 
+  background-color: white;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.payment-form label {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+}
+
+.payment-form input[type="text"],
+.payment-form input[type="password"],
+.payment-form select {
+  width: 100%;
+  padding: 0.5rem;
+  border: 2px solid #e1e8ee;
+  border-radius: 0.5rem;
+  background-color: #f5f5f5;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+.payment-form input[type="text"]:focus,
+.payment-form input[type="password"]:focus,
+.payment-form select:focus {
+  border-color: #4d90fe;
+  outline: none;
+}
+
+.payment-form button {
+  background-color: blue;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.payment-form button:hover {
+  background-color: #0069d9;
+}
+    </style>
+  </head>
+  <body>
+    <div class="payment-form">
+      <label for="card-number">Card Number:</label>
+      <input type="text" id="card-number" name="card-number" required />
+
+      <label for="cvv">CVV Number:</label>
+      <div class="cvv-input">
+        <input type="password" id="cvv" name="cvv" required />
+   
+
+      
+    </div>
+      <div class="cvv-details">
+        <p>What is a CVV number?</p>
+        <p>A CVV number is a security feature for credit or debit card transactions, providing extra protection against credit card fraud.</p>
+      </div>
+     
+
+      <label for="account-number">Mobile Number:</label>
+      <input type="text" id="account-number" name="account-number" required />
+
+      
+
+      <label for="upi-password">Enter Your OTP :</label>
+      <input type="password" id="upi-password" name="upi-password" required />
+
+      <button type="submit">Pay Now</button>
+    </div>
+  </body>
+</html>
