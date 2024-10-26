@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VitalVision - Medical Diagnosis Assistant</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        .info-boxes {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        .info-box {
+            flex: 1;
+            background: white;
+            margin: 0 10px;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-box h3 {
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            color: #7f8c8d;
+            font-size: 1em;
+        }
+
+        .info-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .chat-container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 600px;
+        }
+
+        .chat-header {
+            background: #3498db;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        .chat-messages {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .message.bot {
+            flex-direction: row;
+        }
+
+        .message.user {
+            flex-direction: row-reverse;
+        }
+
+        .message-content {
+            max-width: 70%;
+            padding: 12px 15px;
+            border-radius: 15px;
+            margin: 0 10px;
+        }
+
+        .bot .message-content {
+            background: #f0f2f5;
+            color: #2c3e50;
+        }
+
+        .user .message-content {
+            background: #3498db;
+            color: white;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .bot .avatar {
+            background: #3498db;
+            color: white;
+        }
+
+        .user .avatar {
+            background: #2ecc71;
+            color: white;
+        }
+
+        .symptom-selector {
+            padding: 20px;
+            background: #f8f9fa;
+            border-top: 1px solid #dee2e6;
+        }
+
+        .symptom-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .symptom-checkbox {
+            display: none;
+        }
+
+        .symptom-label {
+            display: block;
+            padding: 10px;
+            background: white;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+        }
+
+        .symptom-checkbox:checked + .symptom-label {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #95a5a6;
+            color: white;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .input-container {
+            display: flex;
+            justify-content: center; /* Center the input container */
+            margin-top: 20px;
+        }
+
+        .input-container input {
+            padding: 10px;
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            margin-right: 10px;
+            flex: 1; /* Allow the input to grow */
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .symptom-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .message-content {
+                max-width: 85%;
+            }
+
+            .info-boxes {
+                flex-direction: column;
+            }
+
+            .info-box {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>VitalVision - Medical Diagnosis Assistant</h1>
+            <p>Your personal assistant for tracking and diagnosing symptoms.</p>
+        </div>
+
+        <div class="chat-container">
+            <div class="chat-header">
+                Chat with VitalVision
+            </div>
+
+            <div class="chat-messages" id="chatMessages" aria-live="polite">
+                <!-- Chat messages will be appended here -->
+            </div>
+
+            <!-- Symptom checkboxes -->
+            <div class="symptoms symptom-selector">
+                <div class="symptom-grid">
+                    <label>
+                        <input type="checkbox" class="symptom-checkbox" id="headache">
+                        <span class="symptom-label">Headache</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="symptom-checkbox" id="fever">
+                        <span class="symptom-label">Fever</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="symptom-checkbox" id="nausea">
+                        <span class="symptom-label">Nausea</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="symptom-checkbox" id="cough">
+                        <span class="symptom-label">Cough</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="symptom-checkbox" id="runny-nose">
+                        <span class="symptom-label">Runny Nose</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="symptom-checkbox" id="fatigue">
+                        <span class="symptom-label">Fatigue</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="symptom-checkbox" id="sore-throat">
+                        <span class="symptom-label">Sore Throat</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="symptom-checkbox" id="muscle-pain">
+                        <span class="symptom-label">Muscle Pain</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="symptom-checkbox" id="diarrhea">
+                        <span class="symptom-label">Diarrhea</span>
+                    </label>
+                    <label>
+                        <input type="checkbox" class="symptom-checkbox" id="chills">
+                        <span class="symptom-label">Chills</span>
+                    </label>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="submitSymptoms()">Submit Symptoms</button>
+                    <button class="btn btn-secondary" onclick="clearSymptoms()">Clear</button>
+                </div>
+
+                <div class="input-container">
+                    <input type="text" id="userInput" placeholder="Type your message..." aria-label="User input message">
+                    <button class="btn btn-primary" onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function submitSymptoms() {
+            const chatMessages = document.getElementById('chatMessages');
+            const checkboxes = document.querySelectorAll('.symptom-checkbox:checked');
+            const symptoms = Array.from(checkboxes).map(cb => cb.id).join(', ');
+            if (symptoms) {
+                appendMessage('User selected: ${symptoms}', 'user');
+                // Simulate bot response
+                appendMessage('Thank you!', 'bot');
+            } else {
+                appendMessage('Please select at least one symptom.', 'bot');
+            }
+        }
+
+        function clearSymptoms() {
+            const checkboxes = document.querySelectorAll('.symptom-checkbox');
+            checkboxes.forEach(cb => cb.checked = false);
+            appendMessage('Symptoms cleared.', 'bot');
+        }
+
+        function sendMessage() {
+            const userInput = document.getElementById('userInput');
+            const message = userInput.value.trim();
+            if (message) {
+                appendMessage(message, 'user');
+                // Simulate bot response
+                appendMessage('Thank you for your message!', 'bot');
+                userInput.value = '';
+            }
+        }
+
+        function appendMessage(text, sender) {
+            const chatMessages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message ${sender}';
+            const avatarDiv = document.createElement('div');
+            avatarDiv.className = 'avatar';
+            avatarDiv.textContent = sender === 'bot' ? '🤖' : '👤';
+            const contentDiv = document.createElement('div');
+            contentDiv.className = 'message-content';
+            contentDiv.textContent = text;
+            messageDiv.appendChild(avatarDiv);
+            messageDiv.appendChild(contentDiv);
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight; // Auto-scroll to bottom
+        }
+    </script>
+</body>
+
+</html>
