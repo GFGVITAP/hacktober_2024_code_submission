@@ -8,6 +8,10 @@ import cv2 as cv
 import numpy as np
 import gym
 
+"""
+import sklearn.model_selection
+import sklearn.linear_model"""
+
 gpu = tf.config.experimental.list_physical_devices('GPU')
 for x in gpu:
   tf.config.experimental.set_memory_growth(x)
@@ -207,7 +211,7 @@ class QNetwork(model):
         return self.fc3(x)
 
 
-class DQNAgent:
+class MedAgent:
     def __init__(self, state_size, action_size, learning_rate=0.01, gamma=0.99, epsilon=1.0, epsilon_decay=0.995, epsilon_min=0.01):
         self.state_size = state_size
         self.action_size = action_size
@@ -251,7 +255,7 @@ class DQNAgent:
 
 env = gym.make('CartPole-v1')
 
-agent = DQNAgent(env.observation_space.shape[0], env.action_space.n)
+agent = MedAgent(env.observation_space.shape[0], env.action_space.n)
 
 num_episodes = 1000
 for episode in range(num_episodes):
@@ -267,3 +271,73 @@ for episode in range(num_episodes):
         score += reward
 
     print(f'Pattern/Arc: {episode+1}, Acc_Score: {score}')
+
+prdt = model.predict(TransformerEncoderLayer.forward())
+agent  = MedAgent.choose_action(state=MedAgent.learn(prdt))
+
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+class DQN(nn.Module):
+    def __init__(self, input_size, output_size):
+        super(DQN, self).__init__()
+        self.fc1 = nn.Linear(input_size, 128)
+        self.fc2 = nn.Linear(128, 64)
+        self.fc3 = nn.Linear(64, output_size)
+
+    def forward(self, x):
+        x = F.relu(self.fc1(x))
+        x = F.relu(self.fc2(x))
+        x = self.fc3(x)
+        return x
+
+
+
+
+
+learning_rate = 0.001
+gamma = 0.99
+epsilon = 1.0
+epsilon_decay = 0.995
+epsilon_min = 0.01
+batch_size = 32
+
+model = DQN(env.observation_space.shape[0], env.action_space.n)
+optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
+criterion = nn.MSELoss()
+
+for episode in range(1000):
+    state = env.reset()
+    done = False
+    total_reward = 0
+
+    while not done:
+    
+        if random.uniform(0, 1) < epsilon:
+            action = env.action_space.sample()
+        else:
+            with torch.no_grad():
+                state_tensor = torch.tensor(state, dtype=torch.float32).unsqueeze(0)
+                q_values = model(state_tensor)
+                action = torch.argmax(q_values).item()
+        next_state, reward, done, _ = env.step(action)
+        total_reward += reward
+
+        q_values = model(state_tensor)
+        next_state_tensor = torch.tensor(next_state, dtype=torch.float32).unsqueeze(0)
+        next_q_values = model(next_state_tensor)
+        target_q_value = reward + gamma * torch.max(next_q_values).item()
+        loss = criterion(q_values[0][action], target_q_value)
+
+
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+
+        state = next_state
+
+        epsilon = max(epsilon * epsilon_decay, epsilon_min)
+
+    print(f"Pattern / ARC : {episode}, Total Reward: {total_reward}")
