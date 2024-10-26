@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Analysis Results</title>
+    <link rel ="icon" href= "../sicon.png">
+    <style>
+        :root {
+          --blue-600: #2563eb;
+          --blue-500: #3b82f6;
+          --green-600: #059669;
+          --slate-50: #f8fafc;
+          --slate-800: #1e293b;
+          --roundness: 8px;
+        }
+
+        body {
+          font-family: 'Inter', system-ui, -apple-system, sans-serif;
+          line-height: 1.6;
+          margin: 0;
+          padding: 0;
+          background: var(--slate-50);
+          color: var(--slate-800);
+        }
+
+        .wrap {
+          max-width: 1200px;
+          margin: 2rem auto;
+          padding: 0 1.5rem;
+        }
+
+        .page-header {
+          text-align: center;
+          margin-bottom: 3rem;
+          padding: 2rem;
+          background: white;
+          border-radius: var(--roundness);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .page-header h1 {
+          color: var(--blue-600);
+          margin: 0;
+          font-size: 2.5rem;
+          font-weight: 700;
+        }
+
+        .score-card {
+          background: white;
+          padding: 1.5rem;
+          border-radius: var(--roundness);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+          margin-bottom: 2rem;
+        }
+
+        .score-card h2 {
+          margin: 0 0 1rem 0;
+          color: var(--slate-800);
+          font-size: 1.5rem;
+        }
+
+        .score {
+          font-size: 2rem;
+          font-weight: 700;
+          color: var(--green-600);
+        }
+
+        .features {
+          background: white;
+          padding: 2rem;
+          border-radius: var(--roundness);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-row {
+          margin: 1rem 0;
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .feature-name {
+          width: 180px;
+          text-align: right;
+          font-weight: 500;
+          font-size: 0.9rem;
+          color: var(--slate-800);
+        }
+
+        .bar-bg {
+          flex-grow: 1;
+          background-color: #e2e8f0;
+          border-radius: var(--roundness);
+          height: 24px;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .bar {
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 100%;
+          background: linear-gradient(90deg, var(--blue-500), var(--blue-600));
+          border-radius: var(--roundness);
+          width: 0;
+          transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .feature-val {
+          position: absolute;
+          right: -65px;
+          top: 50%;
+          transform: translateY(-50%);
+          font-size: 0.9rem;
+          font-weight: 500;
+          color: var(--slate-800);
+          width: 60px;
+        }
+
+        .actions {
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          margin-top: 2rem;
+        }
+
+        .btn {
+          padding: 0.75rem 1.5rem;
+          background: var(--blue-600);
+          color: white;
+          text-decoration: none;
+          border-radius: var(--roundness);
+          font-weight: 500;
+          transition: background-color 0.2s ease;
+        }
+
+        .btn:hover {
+          background: var(--blue-500);
+        }
+
+        @media (max-width: 768px) {
+          .wrap { padding: 0 1rem }
+
+          .feature-name {
+            width: 120px;
+            font-size: 0.8rem;
+          }
+
+          .feature-val {
+            right: -55px;
+            font-size: 0.8rem;
+            width: 50px;
+          }
+
+          .actions {
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .btn {
+            width: 100%;
+            text-align: center;
+          }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="page-header">
+            <h1>Prediction Results</h1>
+        </div>
+
+        <div class="score-card">
+            <h2>{{ metric_name }}</h2>
+            <div class="score">{{ "%.4f"|format(performance) }}</div>
+        </div>
+
+        <div class="features">
+            <h2>Feature Importance</h2>
+            <div id="importance-vis"></div>
+        </div>
+
+        <div class="actions">
+            <a href="{{ url_for('predict', filename=filename) }}" class="btn">Make Another Prediction</a>
+            <a href="{{ url_for('analyze', filename=filename) }}" class="btn">Back to Analysis</a>
+            <a href="{{ url_for('index') }}" class="btn">Upload New File</a>
+        </div>
+    </div>
+
+    <div id="feature-data" style="display: none;" data-features='{{ feature_importance_data | tojson }}'></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let featureData = JSON.parse(
+                document.getElementById('feature-data')
+                .getAttribute('data-features')
+            )
+            
+            let maxVal = Math.max(...featureData.map(d => d.importance))
+            let viz = document.getElementById('importance-vis')
+            
+            featureData.forEach((feat, idx) => {
+                let row = document.createElement('div')
+                row.className = 'feature-row'
+                
+                let name = document.createElement('div')
+                name.className = 'feature-name'
+                name.textContent = feat.feature
+                
+                let barBg = document.createElement('div')
+                barBg.className = 'bar-bg'
+                
+                let bar = document.createElement('div')
+                bar.className = 'bar'
+                
+                let val = document.createElement('div')
+                val.className = 'feature-val'
+                val.textContent = feat.importance.toFixed(4)
+                
+                barBg.appendChild(bar)
+                row.appendChild(name)
+                row.appendChild(barBg)
+                row.appendChild(val)
+                viz.appendChild(row)
+                
+                setTimeout(() => {
+                    let pct = (feat.importance / maxVal) * 100
+                    bar.style.width = `${pct}%`
+                }, 150 * idx)
+            })
+        })
+    </script>
+</body>
+</html>

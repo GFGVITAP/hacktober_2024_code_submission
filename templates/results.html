@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Results</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Analysis Results</h1>
+        <h2>Dataset Info</h2>
+        <pre>{{ results.info }}</pre>
+        <h2>Visualizations</h2>
+        {% for plot_url in results.plots %}
+            <img src="data:image/png;base64,{{ plot_url }}" alt="Visualization" class="img-fluid mb-3">
+        {% endfor %}
+        <a href="/" class="btn btn-primary mt-3">Upload another file</a>
+    </div>
+</body>
+</html>

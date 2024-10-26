@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSV Uploader</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href = "sicon.png" rel = "icon" >
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Upload CSV File</h1>
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="file" class="form-control-file" name="file" accept=".csv">
+            </div>
+            <button type="submit" class="btn btn-primary">Upload and Display</button>
+        </form>
+    </div>
+</body>
+</html>

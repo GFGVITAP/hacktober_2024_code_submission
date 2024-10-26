@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Real-time Data Analysis</title>
+    <link rel ="icon" href= "../sicon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1>Real-time Data Analysis</h1>
+        
+        <!-- File Input Section -->
+        <input 
+            type="file" 
+            id="csvFile" 
+            accept=".csv" 
+            class="form-control-file mb-3">
+        <button 
+            id="analyzeBtn" 
+            class="btn btn-primary mb-3">
+            Analyze
+      </button>
+        
+        <!-- Results Section -->
+        <div id="results"></div>
+        
+        <!-- Prediction Section -->
+        <button 
+            id="predictBtn" 
+            class="btn btn-success mt-3" 
+            style="display: none;"
+        >
+            Data Prediction
+        </button>
+        <div id="predictionResults" class="mt-3"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Socket initialization
+        const socket = io();
+        
+        // DOM Elements
+        const analyzeBtn = document.getElementById('analyzeBtn');
+        const predictBtn = document.getElementById('predictBtn');
+        const csvFile = document.getElementById('csvFile');
+        const results = document.getElementById('results');
+        const predictionResults = document.getElementById('predictionResults');
+
+        // Analyze Button Event Handler
+        analyzeBtn.addEventListener('click', () => {
+            const file = csvFile.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                   const contents = e.target.result;
+                   socket.emit('analyze_csv', {
+                      file_path: file.name,
+                      contents: contents
+                    });
+                };
+                reader.readAsText(file);
+                results.innerHTML = '<p>Analysis started...</p>';
+                predictBtn.style.display = 'none';
+                predictionResults.innerHTML = '';
+            }
+        });
+
+        // Predict Button Event Handler
+        predictBtn.addEventListener('click', () => {
+            socket.emit('predict');
+            predictionResults.innerHTML = '<p>Prediction started...</p>';
+        });
+
+        // Socket Event Handlers
+        socket.on('update', (data) => {
+            if (data.type === 'info') {
+              results.innerHTML += `
+                   <h2>Dataset Info</h2>
+                   <pre>${data.data}</pre>
+                `;
+            } else if (data.type === 'plot') {
+                results.innerHTML += `
+                  <img src="data:image/png;base64,${data.data}"  alt="Visualization" class="img-fluid mb-3">
+                `;
+            }
+        });
+
+        socket.on('analysis_complete', () => {
+            results.innerHTML += '<p>Analysis complete!</p>';
+            predictBtn.style.display = 'block';
+        });
+
+        socket.on('prediction_result', (data) => {
+            if (data.error) {
+                predictionResults.innerHTML = `
+                    <p class="text-danger">${data.error}</p>
+                `;
+            } else {
+                predictionResults.innerHTML = `
+                    <h3>Prediction Results</h3>
+                    <pre>${data.result}</pre>
+                    <img 
+                        src="data:image/png;base64,${data.plot}" 
+                        alt="Feature Importance" 
+                        class="img-fluid mb-3"
+                    >
+                `;
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <style>
+        /* Inline CSS for blue gradient background */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: #ffffff;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .button {
+            background-color: #4e97d8;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #3c82c6;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Our Site</h1>
+        <p>Your journey starts here.</p>
+        <button class="button" onclick="redirectToPage()">Enter</button>
+    </div>
+
+    <script>
+        // JavaScript function to redirect
+        function redirectToPage() {
+            window.location.href = './templates/index.html';
+        }
+    </script>
+</body>
+</html>

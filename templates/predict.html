@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Analysis - Predict Data</title>
+    <link rel ="icon" href= "../sicon.png">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #3b82f6;
+            --success-color: #059669;
+            --background-color: #f8fafc;
+            --text-color: #1e293b;
+            --border-radius: 8px;
+            --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            margin: 2rem;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s var(--transition-timing) forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0 0 2rem 0;
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-color);
+            font-size: 0.9rem;
+            transform: translateY(0);
+            transition: transform 0.3s var(--transition-timing);
+        }
+
+        .select-wrapper {
+            position: relative;
+            margin-bottom: 1.5rem;
+        }
+
+        .select-wrapper::after {
+            content: '▼';
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+        }
+
+        select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            appearance: none;
+            background-color: white;
+            transition: border-color 0.3s var(--transition-timing);
+            cursor: pointer;
+        }
+
+        select:hover {
+            border-color: var(--secondary-color);
+        }
+
+        select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .button {
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 500;
+            width: 100%;
+            cursor: pointer;
+            transition: transform 0.3s var(--transition-timing), box-shadow 0.3s var(--transition-timing);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+        }
+
+        .button:active {
+            transform: translateY(0);
+        }
+
+        .button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 300%;
+            height: 300%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%) rotate(35deg) translateY(100%);
+            transition: transform 0.6s var(--transition-timing);
+        }
+
+        .button:hover::after {
+            transform: translate(-50%, -50%) rotate(35deg) translateY(-100%);
+        }
+
+        .navigation {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .nav-link {
+            flex: 1;
+            padding: 0.75rem;
+            text-align: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s var(--transition-timing);
+        }
+
+        .nav-link:hover {
+            background-color: rgba(37, 99, 235, 0.1);
+            color: var(--secondary-color);
+        }
+
+        .spinner {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(37, 99, 235, 0.1);
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .loading .spinner {
+            display: block;
+        }
+
+        .loading .card-content {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        @keyframes spin {
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                margin: 1rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .navigation {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-content">
+                <h1>Predict Data</h1>
+                <form method="post" onsubmit="showLoading()">
+                    <div class="form-group">
+                        <label for="target">Select Target Column</label>
+                        <div class="select-wrapper">
+                            <select name="target" id="target">
+                                {% for feature in features %}
+                                    <option value="{{ feature }}">{{ feature }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="button">
+                        Start Prediction
+                    </button>
+                </form>
+                <div class="navigation">
+                    <a href="{{ url_for('analyze', filename=filename) }}" class="nav-link">Back to Analysis</a>
+                    <a href="{{ url_for('index') }}" class="nav-link">Upload New File</a>
+                </div>
+            </div>
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <script>
+        function showLoading() {
+            document.querySelector('.card').classList.add('loading');
+        }
+
+        // Add hover effect to select options
+        const select = document.querySelector('select');
+        select.addEventListener('focus', () => {
+            select.parentElement.classList.add('focused');
+        });
+        select.addEventListener('blur', () => {
+            select.parentElement.classList.remove('focused');
+        });
+
+        // Add entrance animation for the container
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.container').classList.add('show');
+        });
+    </script>
+</body>
+</html>

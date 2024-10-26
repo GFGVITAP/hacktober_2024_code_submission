@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analysis App</title>
+    <link href= "sicon.png" rel ="icon" >
+    
+
+
+    <style>
+        /* Base Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* Header Section */
+        .headerSection {
+            background: linear-gradient(45deg, #1a2980, #26d0ce);
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Animated Background Elements */
+        .background-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .chart-line {
+            position: absolute;
+            height: 60px;
+            width: 2px;
+            background: rgba(255, 255, 255, 0.2);
+            bottom: 0;
+        }
+
+
+
+
+        
+        @keyframes chartGrow {
+            0% { height: 0; }
+            50% { height: 60px; }
+            100% { height: 40px; }
+        }
+
+        /* chart lines */
+        .chart-line:nth-child(1) { left: 10%; animation: chartGrow 3s infinite; }
+        .chart-line:nth-child(2) { left: 20%; animation: chartGrow 3s infinite 0.2s; }
+        .chart-line:nth-child(3) { left: 30%; animation: chartGrow 3s infinite 0.4s; }
+        .chart-line:nth-child(4) { left: 40%; animation: chartGrow 3s infinite 0.6s; }
+        .chart-line:nth-child(5) { left: 50%; animation: chartGrow 3s infinite 0.8s; }
+        .chart-line:nth-child(6) { left: 60%; animation: chartGrow 3s infinite 1s; }
+        .chart-line:nth-child(7) { left: 70%; animation: chartGrow 3s infinite 1.2s; }
+        .chart-line:nth-child(8) { left: 80%; animation: chartGrow 3s infinite 1.4s; }
+        .chart-line:nth-child(9) { left: 90%; animation: chartGrow 3s infinite 1.6s; }
+
+        /* Floating Particles */
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-100vh) rotate(360deg); }
+        }
+
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .particle:nth-child(1) { left: 10%; animation: float 15s linear infinite; }
+        .particle:nth-child(2) { left: 20%; animation: float 20s linear infinite 2s; }
+        .particle:nth-child(3) { left: 30%; animation: float 18s linear infinite 4s; }
+        .particle:nth-child(4) { left: 40%; animation: float 16s linear infinite 6s; }
+        .particle:nth-child(5) { left: 50%; animation: float 19s linear infinite 8s; }
+
+        /* header (title card) */
+        .headerContent {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            color: #fff;
+            margin: 0 0 1rem 0;
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: #fff;
+            border-radius: 2px;
+        }
+
+        .tagline {
+            color: #fff;
+            font-size: 1.4rem;
+            margin: 1.5rem 0 0 0;
+            padding: 0;
+            opacity: 0.9;
+            font-weight: 300;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { opacity: 0.8; }
+        }
+
+        
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+
+        .stat-item {
+            color: #fff;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .stat-number {
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: block;
+        }
+
+    
+        form {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 2rem auto;
+            max-width: 600px;
+            transform: scale(1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        form:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        input[type="file"] {
+            margin: 1rem 0;
+            width: 100%;
+            max-width: 400px;
+            padding: 10px;
+            border: 2px dashed #1a2980;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="file"]:hover {
+            border-color: #26d0ce;
+            background-color: #f8f9fa;
+        }
+
+        input[type="submit"] {
+            background: linear-gradient(45deg, #1a2980, #26d0ce);
+            color: #fff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        input[type="submit"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(26, 41, 128, 0.3);
+        }
+
+        
+        .results-link {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #1a2980;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .results-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background: linear-gradient(45deg, #1a2980, #26d0ce);
+            transition: all 0.3s ease;
+        }
+
+        .results-link:hover {
+            text-decoration: none;
+            color: #26d0ce;
+        }
+
+        .results-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #1a2980;
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+
+
+
+                        <!-- body section -->
+
+<body>
+    <main>
+    <div class="headerSection">
+            <!-- All teh Background Elements are here -->
+            <div class="background-elements">
+                <div class="chart-line"></div>
+                <div class="chart-line"></div>
+                <div class="chart-line"></div>
+                <div class="chart-line"></div>
+                <div class="chart-line"></div>
+                <div class="chart-line"></div>
+                <div class="chart-line"></div>
+                <div class="chart-line"></div>
+                <div class="chart-line"></div>
+                
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+
+            <!-- Header Content -->
+            <div class="headerContent">
+                <h1>Data Analysis App</h1>
+                <p class="tagline">Where your data meets excellence</p>
+                
+                <!-- Stats Counter -->
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <span class="stat-number">99.9%</span>
+                        Accuracy
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50K+</span>
+                        Analyses
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        Support
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <form method="post" enctype="multipart/form-data">
+            <label for="file-upload">
+                Upload your data file (CSV or Excel):
+            </label>
+            
+            <input 
+                type="file" 
+                id="file-upload" 
+                name="file" 
+                accept=".csv,.xlsx" 
+                required
+            >
+            
+            <input 
+                type="submit" 
+                value="Upload"
+            >
+        </form>
+        
+        <p>
+            <a href="results.html" class="results-link">See results</a>
+        </p>
+    </main>
+</body>
+</html>
